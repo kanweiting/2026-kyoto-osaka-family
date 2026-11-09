@@ -339,7 +339,8 @@ function pickMe() {
       });
       const sv = el.querySelector('[data-saveapi]');
       if (sv) sv.onclick = async () => { API.url = parseApi(el.querySelector('#apiUrl').value);
-        history.replaceState(null, '', location.pathname + location.search + (API.url ? '#api=' + encodeURIComponent(API.url) : '')); toast('連線中…'); await Store.load(); renderSync(); render(); toast(syncText()); pickMe(); };
+        history.replaceState(null, '', location.pathname + location.search + (API.url ? '#api=' + encodeURIComponent(API.url) : '')); toast('連線中…'); await Store.load(); renderSync(); render();
+        if (S.me && Store.state === 'ok') { closeSheet(); toast(syncText()); } else { pickMe(); toast(S.me ? syncText() : '已儲存，請點上面的名字選身分'); } };
       const iv = el.querySelector('[data-invite]');
       if (iv) iv.onclick = async () => { try { await navigator.clipboard.writeText(invite); toast('已複製邀請連結'); } catch (e) { prompt('複製這個連結', invite); } };
     });
