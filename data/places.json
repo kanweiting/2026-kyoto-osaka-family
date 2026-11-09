@@ -31,7 +31,13 @@
 "by": "行前整理",
 "text": "火車迷必去，室內為主、推車好走；週三休館（以官網為準）"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "館內平坦、有電梯"
+},
+"indoor": true
 },
 {
 "id": "k2",
@@ -65,7 +71,13 @@
 "by": "行前整理",
 "text": "室內，冬天也舒服；就在梅小路公園裡"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "館內平坦、有電梯"
+},
+"indoor": true
 },
 {
 "id": "k3",
@@ -99,7 +111,13 @@
 "by": "行前整理",
 "text": "有大草皮和兒童遊具，可以跟鐵道博物館、水族館排同一天"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "園內步道平坦"
+},
+"indoor": false
 },
 {
 "id": "k4",
@@ -133,7 +151,13 @@
 "by": "行前整理",
 "text": "離住宿走路就到；有兒童繪本區（以官網公休日為準）"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "老校舍改建，有電梯；部分區域較窄"
+},
+"indoor": true
 },
 {
 "id": "k5",
@@ -167,7 +191,13 @@
 "by": "行前整理",
 "text": "人多、走道窄，推車建議改背巾"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "走道窄、人潮多，尖峰時段推車很難前進"
+},
+"indoor": false
 },
 {
 "id": "k6",
@@ -176,7 +206,7 @@
 "type": "景點",
 "subcat": "公園",
 "closed": "",
-"note": "大片碎石步道與草地，適合放電散步",
+"note": "大片草地、空間大，適合放電；碎石路推車比較吃力",
 "price": "",
 "address": "",
 "area": "二條城/御所",
@@ -199,9 +229,15 @@
 {
 "src": "seed",
 "by": "行前整理",
-"text": "大片碎石步道與草地，適合放電散步"
+"text": "大片草地、空間大，適合放電；碎石路推車比較吃力"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "大面積碎石路，推車吃力，輪子大的推車比較好"
+},
+"indoor": false
 },
 {
 "id": "k7",
@@ -235,7 +271,13 @@
 "by": "行前整理",
 "text": "離住宿 1 站地鐵；城內木地板要脫鞋，推車需寄放"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "碎石路多；二之丸御殿內不能推車，要寄放"
+},
+"indoor": false
 },
 {
 "id": "k8",
@@ -269,7 +311,13 @@
 "by": "行前整理",
 "text": "平坦河堤，傍晚散步很舒服"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "河岸步道平坦；上下河堤有坡道也有階梯"
+},
+"indoor": false
 },
 {
 "id": "k9",
@@ -297,7 +345,13 @@
 "rating": null,
 "ratingCount": null,
 "fromList": false,
-"comments": []
+"comments": [],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "西樓門前有階梯，南側入口較平"
+},
+"indoor": false
 },
 {
 "id": "k10",
@@ -331,7 +385,13 @@
 "by": "行前整理",
 "text": "坡道、階梯多，推車辛苦，建議背巾；早上去人少"
 }
-]
+],
+"access": {
+"stroller": "hard",
+"nursing": null,
+"note": "坡道、階梯多，建議用背巾"
+},
+"indoor": false
 },
 {
 "id": "k11",
@@ -365,7 +425,13 @@
 "by": "行前整理",
 "text": "千本鳥居前段就很好拍，帶小孩不必爬上山頂"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "本殿一帶平坦，千本鳥居開始有階梯"
+},
+"indoor": false
 },
 {
 "id": "k12",
@@ -399,7 +465,13 @@
 "by": "行前整理",
 "text": "廣場空曠好推車；附近有京都市動物園"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "廣場是碎石路"
+},
+"indoor": false
 },
 {
 "id": "k13",
@@ -433,7 +505,13 @@
 "by": "行前整理",
 "text": "小而美、好逛，適合 1–3 歲；週一休（以官網為準）"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "園區小、平坦"
+},
+"indoor": false
 },
 {
 "id": "k14",
@@ -467,7 +545,13 @@
 "by": "行前整理",
 "text": "溫室冬天也能逛"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "園內步道平坦，溫室可避寒"
+},
+"indoor": false
 },
 {
 "id": "k15",
@@ -495,7 +579,13 @@
 "rating": null,
 "ratingCount": null,
 "fromList": false,
-"comments": []
+"comments": [],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "參觀路線有碎石和坡道"
+},
+"indoor": false
 },
 {
 "id": "k16",
@@ -529,7 +619,13 @@
 "by": "行前整理",
 "text": "建議早上去；可排一天嵐山"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "路面有鋪，但人很多，早上去比較好推"
+},
+"indoor": false
 },
 {
 "id": "k17",
@@ -557,7 +653,13 @@
 "rating": null,
 "ratingCount": null,
 "fromList": false,
-"comments": []
+"comments": [],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "橋面平坦"
+},
+"indoor": false
 },
 {
 "id": "k18",
@@ -591,7 +693,13 @@
 "by": "行前整理",
 "text": "伊勢丹、Porta 地下街，雨天備案；有哺乳室"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "車站和百貨都有電梯"
+},
+"indoor": true
 },
 {
 "id": "k19",
@@ -625,7 +733,13 @@
 "by": "行前整理",
 "text": "大阪親子首選，全室內；旁邊有天保山摩天輪"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "館內是螺旋坡道，推車很好走"
+},
+"indoor": true
 },
 {
 "id": "k20",
@@ -659,7 +773,13 @@
 "by": "行前整理",
 "text": "室內兒童博物館，有幼兒專區（公休日以官網為準）"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "兒童館，推車可以進館"
+},
+"indoor": true
 },
 {
 "id": "k21",
@@ -693,7 +813,13 @@
 "by": "行前整理",
 "text": "園區很大，推車好走"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "園區大，有坡道；天守閣內有電梯"
+},
+"indoor": false
 },
 {
 "id": "k22",
@@ -727,7 +853,13 @@
 "by": "行前整理",
 "text": "晚上人潮多，推車注意"
 }
-]
+],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "晚上人潮擁擠"
+},
+"indoor": false
 },
 {
 "id": "k23",
@@ -755,7 +887,13 @@
 "rating": null,
 "ratingCount": null,
 "fromList": false,
-"comments": []
+"comments": [],
+"access": {
+"stroller": "some",
+"nursing": null,
+"note": "走道窄、人多"
+},
+"indoor": false
 },
 {
 "id": "k24",
@@ -789,7 +927,13 @@
 "by": "行前整理",
 "text": "週一休（以官網為準）"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": null,
+"note": "園區平坦"
+},
+"indoor": false
 },
 {
 "id": "k25",
@@ -823,7 +967,13 @@
 "by": "行前整理",
 "text": "近鐵百貨有嬰兒用品樓層、哺乳室"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "百貨有嬰兒用品樓層"
+},
+"indoor": true
 },
 {
 "id": "k26",
@@ -857,7 +1007,13 @@
 "by": "行前整理",
 "text": "雨天備案；有嬰兒休息室"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "百貨有嬰兒休息室"
+},
+"indoor": true
 },
 {
 "id": "k27",
@@ -891,6 +1047,12 @@
 "by": "行前整理",
 "text": "1 歲多能玩的設施不多，任天堂區、芝麻街幼兒區可考慮"
 }
-]
+],
+"access": {
+"stroller": "easy",
+"nursing": true,
+"note": "園區平坦，有嬰兒中心、可租推車"
+},
+"indoor": false
 }
 ]

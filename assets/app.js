@@ -13,6 +13,8 @@ const CATS = [
   { id: 'food', name: '餐飲', icon: '🍜' }, { id: 'transport', name: '交通', icon: '🚃' }, { id: 'stay', name: '住宿', icon: '🏠' },
   { id: 'shop', name: '購物', icon: '🛍️' }, { id: 'fun', name: '門票/娛樂', icon: '🎟️' }, { id: 'other', name: '其他', icon: '📦' },
 ];
+const PAYS = [{ id: 'card', name: '信用卡', icon: '💳' }, { id: 'cash', name: '現金', icon: '💵' }];
+const PAY = Object.fromEntries(PAYS.map(x => [x.id, x]));
 const SLOTS = ['早餐', '上午', '午餐', '下午', '晚餐', '宵夜', 'BAR', '購物', '景點'];
 const TYPE = Object.fromEntries(TYPES.map(t => [t.name, t]));
 const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
@@ -132,6 +134,15 @@ const kmText = d => d < 1 ? Math.round(d * 1000) + ' m' : d.toFixed(1) + ' km';
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => t.hidden = true, 1800); }
 const lodgingOn = d => (trip.lodgings || []).find(l => l.checkin < d && d <= l.checkout) || trip.lodging;   // 前一晚住的地方
 const allLodgings = () => (trip.lodgings || [trip.lodging]).filter(l => l.lat);
+/* 推車／無障礙：行前整理（p.access）＋ 家人現場回報（Store kind 'access'，最新一筆為準） */
+const ST = { easy: { t: '推車好走', i: '🟢', c: 'brand' }, some: { t: '推車部分可', i: '🟡', c: '' }, hard: { t: '建議背巾', i: '🔴', c: 'warn' } };
+function accessOf(p) {
+  const base = p.access || {}, r = Store.of('access').filter(x => x.place === p.id).sort((a, b) => (b.ts || '').localeCompare(a.ts || ''))[0];
+  return r ? { stroller: r.stroller || base.stroller, nursing: r.nursing ?? base.nursing ?? null, note: r.note || base.note || '', by: r.by, ts: r.ts }
+    : { stroller: base.stroller || '', nursing: base.nursing ?? null, note: base.note || '' };
+}
+const accBadge = p => { const a = accessOf(p), st = ST[a.stroller];
+  return (st ? `<span class="badge ${st.c}">🚼 ${st.t}</span>` : '') + (a.nursing ? '<span class="badge">🍼 哺乳室</span>' : '') + (p.indoor ? '<span class="badge">☂️ 室內</span>' : ''); };
 function closedDays(p) { const c = p.closed || ''; if (!c || /24HR|\?/.test(c)) return []; return trip.dates.filter(d => c.includes(wd(d))); }
 function nearestArea(lat, lng) { let best = null, bd = 1e9;
   if (!areas.length) { const c = CITY().center; return { area: { name: CITY().name, lat: c[0], lng: c[1] }, km: dist(lat, lng, c[0], c[1]) }; } for (const a of areas) { const d = dist(lat, lng, a.lat, a.lng); if (d < bd) { bd = d; best = a; } } return { area: best, km: bd }; }
@@ -280,6 +291,7 @@ function pcard(p, opt = {}) {
       <div class="tags">
         ${cd.length ? `<span class="badge warn">${cd.map(md).join('、')} 公休</span>` : ''}
         ${others.length ? `<span class="badge">❤️ ${h(others.map(m => m.name).join('、'))}</span>` : ''}
+        ${accBadge(p)}
         ${p.price ? `<span class="badge">💴 ${h(p.price.slice(0, 18))}</span>` : ''}
         ${plannedIds().has(p.id) ? '<span class="badge brand">已排入行程</span>' : ''}
       </div>
@@ -361,6 +373,13 @@ function openPlace(id) {
     ${entries.length ? `<div class="plan-box"><div class="plan-box-h">🗓️ 已排入行程</div>
       ${entries.map(i => `<div class="plan-row"><span>${h(label(i))}</span><button class="mini" data-pedit="${h(i._k)}">調整</button><button class="mini danger" data-prm="${h(i._k)}">移除</button></div>`).join('')}
       <button class="mini ghost" data-act="plan-more">＋ 也排到其他天</button></div>` : ''}
+    ${(() => { const a = accessOf(p), st = ST[a.stroller];
+      return `<div class="acc-box"><div class="acc-h"><b>👶 推車／無障礙</b><button class="mini" data-act="acc">現場回報</button></div>
+        <div class="acc-row"><span>推車</span><b>${st ? st.i + ' ' + st.t : '<span class="neg">資料未確認</span>'}</b></div>
+        <div class="acc-row"><span>哺乳室／尿布台</span><b>${a.nursing === true ? '✅ 有' : a.nursing === false ? '❌ 沒有' : '<span class="neg">資料未確認</span>'}</b></div>
+        <div class="acc-row"><span>室內</span><b>${p.indoor ? '☂️ 是，下雨也能去' : '戶外為主'}</b></div>
+        ${a.note ? `<div class="muted small" style="margin-top:6px">${h(a.note)}</div>` : ''}
+        <div class="muted small" style="margin-top:4px">${a.by ? `📍 ${h(memberName(a.by))} ${h(fmtTs(a.ts))} 現場回報` : '行前整理，以現場為準'}</div></div>`; })()}
     ${(p.comments || []).length ? `<div class="sec-head" style="margin:16px 0 8px"><h3>大家怎麼說</h3><span>${p.comments.length} 則</span></div>
       <div class="comments">${p.comments.map(c => `<div class="cmt"><div class="cmt-by">${{ sheet: '📝', ig: '🎬', threads: '🧵', gmaps: '🗺️', google: '⭐' }[c.src] || '💬'} ${h(c.by)}${c.url ? ` · <a href="${h(c.url)}" target="_blank" rel="noopener">原文 ↗</a>` : ''}</div><div class="cmt-t">${h(c.text)}</div></div>`).join('')}</div>`
       : p.note ? `<div class="note-full">${h(p.note)}</div>` : ''}
@@ -373,6 +392,7 @@ function openPlace(id) {
     ${p.recId ? '<button class="btn danger" data-act="rmplace" style="margin-top:10px">從清單移除這個地點</button>' : ''}`,
     el => {
       el.querySelector('[data-act=fav]').onclick = async () => { await toggleFav(id); openPlace(id); };
+      el.querySelector('[data-act=acc]').onclick = () => openAccess(id);
       const rm = el.querySelector('[data-act=rmplace]');
       if (rm) rm.onclick = async () => { if (!confirm(`把「${p.name}」從清單移除？`)) return; await Store.del(p.recId); mergeUserPlaces(); closeSheet(); toast('已移除'); render(); };
       el.querySelector('[data-act=plan]').onclick = () => entries.length ? openAddPlan(id, entries[0]) : openAddPlan(id);
@@ -382,6 +402,21 @@ function openPlace(id) {
     });
 }
 
+function openAccess(id) {
+  const p = byId[id], a = accessOf(p), F = { stroller: a.stroller, nursing: a.nursing, note: '' };
+  const draw = () => openSheet(`<h2>現場回報：${h(p.name)}</h2><div class="sub">回報後兩個人的手機都會看到</div>
+    <div class="field"><span class="field-label">推車好不好走</span><div class="seg" data-g="stroller">${Object.entries(ST).map(([k, v]) => `<button class="${F.stroller === k ? 'on' : ''}" data-v="${k}">${v.i} ${v.t}</button>`).join('')}</div></div>
+    <div class="field"><span class="field-label">哺乳室／尿布台</span><div class="seg" data-g="nursing">${[['1', '✅ 有'], ['0', '❌ 沒有'], ['', '不確定']].map(([v, t]) => `<button class="${(F.nursing === true ? '1' : F.nursing === false ? '0' : '') === v ? 'on' : ''}" data-v="${v}">${t}</button>`).join('')}</div></div>
+    <div class="field"><label for="accNote">補充（選填）</label><input class="input" id="accNote" maxlength="60" placeholder="例：電梯在東口、入口有 5 階" value="${h(F.note)}"></div>
+    <div class="form-foot"><button class="btn" data-save>送出</button></div>`, el => {
+      el.querySelectorAll('[data-g] button').forEach(b => b.onclick = () => { F.note = el.querySelector('#accNote').value; const g = b.parentElement.dataset.g;
+        F[g] = g === 'nursing' ? (b.dataset.v === '' ? null : b.dataset.v === '1') : b.dataset.v; draw(); });
+      el.querySelector('[data-save]').onclick = async () => { if (!S.me) return pickMe();
+        await Store.put({ kind: 'access', place: id, stroller: F.stroller, nursing: F.nursing, note: el.querySelector('#accNote').value.trim() });
+        toast('已回報，謝謝 👍'); render(); openPlace(id); };
+    });
+  draw();
+}
 function openAddPlan(id, rec) {
   const p = byId[id], F = { date: rec?.date || S.day || trip.dates[0], time: rec?.time || '', slot: rec?.slot || (p.type === '咖啡/甜點' ? '下午' : p.type === 'Bar/居酒屋' ? 'BAR' : p.type === '景點' ? '景點' : '午餐') };
   const draw = () => openSheet(`<h2>${rec ? '調整行程' : '加入行程'}</h2><div class="sub">${h(p.name)}</div>
@@ -477,17 +512,77 @@ function bindPrep() {
 }
 
 /* ---------- 行程：今日重點（自動整理＋負責人寫的摘要，五人共享） ---------- */
+
+/* ---------- 天氣（Open-Meteo，免金鑰）：16 天內用預報，更早只能看去年同期 ---------- */
+const WMO = c => c === 0 ? ['☀️', '晴'] : c <= 2 ? ['🌤️', '晴時多雲'] : c === 3 ? ['☁️', '陰'] : c <= 48 ? ['🌫️', '霧'] : c <= 57 ? ['🌦️', '毛毛雨']
+  : c <= 67 ? ['🌧️', '雨'] : c <= 77 ? ['🌨️', '雪'] : c <= 82 ? ['🌧️', '陣雨'] : c <= 86 ? ['🌨️', '陣雪'] : ['⛈️', '雷雨'];
+const addDays = (d, n) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+function wxLoc(d) {
+  const ls = trip.lodgings || [trip.lodging], l = ls.find(l => l.checkin <= d && d < l.checkout) || ls[ls.length - 1];
+  return l?.wx || { name: CITY().name, lat: CITY().center[0], lng: CITY().center[1] };
+}
+const WX = { key: 'wx:v1', data: JSON.parse(localStorage.getItem('wx:v1') || '{}'), busy: false };
+const wxOf = d => WX.data[d];
+async function loadWeather() {
+  if (WX.busy || (WX.data._at && Date.now() - WX.data._at < 3 * 3600e3 && WX.data._v === today())) return;
+  WX.busy = true;
+  const td = today(), horizon = addDays(td, 15), out = { _at: Date.now(), _v: td }, groups = {};
+  trip.dates.forEach(d => { const l = wxLoc(d); (groups[l.name] ||= { l, ds: [] }).ds.push(d); });
+  const q = (l, extra) => `latitude=${l.lat}&longitude=${l.lng}&timezone=Asia%2FTokyo&${extra}`;
+  try {
+    for (const { l, ds } of Object.values(groups)) {
+      const fc = ds.filter(d => d <= horizon && d >= addDays(td, -60)), ly = ds.filter(d => !fc.includes(d));
+      if (fc.length) {
+        const r = await fetch(`https://api.open-meteo.com/v1/forecast?${q(l, `start_date=${fc[0]}&end_date=${fc[fc.length - 1]}`)}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,precipitation_sum&hourly=precipitation_probability`).then(r => r.json());
+        (r.daily?.time || []).forEach((d, i) => { if (!fc.includes(d)) return;
+          const hrs = (r.hourly?.time || []).map((t, k) => [t, r.hourly.precipitation_probability[k]]).filter(([t, v]) => t.startsWith(d) && +t.slice(11, 13) >= 8 && +t.slice(11, 13) <= 20 && v >= 50).map(([t]) => +t.slice(11, 13));
+          out[d] = { src: 'fc', loc: l.name, code: r.daily.weather_code[i], tmax: r.daily.temperature_2m_max[i], tmin: r.daily.temperature_2m_min[i],
+            pop: r.daily.precipitation_probability_max[i], rain: r.daily.precipitation_sum[i], rainHrs: hrs.length ? [hrs[0], hrs[hrs.length - 1] + 1] : null };
+        });
+      }
+      if (ly.length) {
+        const s0 = addDays(ly[0], -365), s1 = addDays(ly[ly.length - 1], -365);
+        const r = await fetch(`https://archive-api.open-meteo.com/v1/archive?${q(l, `start_date=${s0}&end_date=${s1}`)}&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum`).then(r => r.json());
+        (r.daily?.time || []).forEach((d0, i) => { const d = addDays(d0, 365); if (!ly.includes(d)) return;
+          out[d] = { src: 'ly', loc: l.name, code: r.daily.weather_code[i], tmax: r.daily.temperature_2m_max[i], tmin: r.daily.temperature_2m_min[i], rain: r.daily.precipitation_sum[i] }; });
+      }
+    }
+    WX.data = out; localStorage.setItem(WX.key, JSON.stringify(out));
+  } catch (e) { /* 離線：沿用上次存的 */ }
+  WX.busy = false;
+  if (S.tab === 'plan') renderPlan();
+}
+function wxHtml(d) {
+  const w = wxOf(d), l = wxLoc(d);
+  if (!w || w.tmax == null) return `<div class="wx muted small">🌡️ ${h(l.name)}天氣${WX.busy ? '載入中…' : '暫時抓不到（離線？）'}</div>`;
+  const [ic, tx] = WMO(w.code), r = v => Math.round(v);
+  const wet = w.src === 'fc' ? (w.pop >= 50 || w.rain >= 1) : w.rain >= 1;
+  const tips = [];
+  if (w.src === 'fc' && w.rainHrs) tips.push(`☔ ${w.rainHrs[0]}–${w.rainHrs[1]} 點可能下雨，推車雨罩帶著`);
+  else if (w.src === 'fc' && wet) tips.push('☔ 可能下雨，推車雨罩帶著');
+  if (w.tmin <= 3) tips.push(`🥶 最低 ${r(w.tmin)}°C，推車防風罩、手套、帽子`);
+  let rainy = '';
+  if (wet) {
+    const near = places.filter(p => p.indoor && p.lat && dist(l.lat, l.lng, p.lat, p.lng) < 15)
+      .sort((a, b) => dist(l.lat, l.lng, a.lat, a.lng) - dist(l.lat, l.lng, b.lat, b.lng)).slice(0, 4);
+    if (near.length) rainy = `<div class="wx-alt"><span>☂️ 雨天備案</span>${near.map(p => `<button class="chip" data-open="${p.id}">${h(p.name)}</button>`).join('')}</div>`;
+  }
+  return `<div class="wx"><div class="wx-main"><span class="wx-ic">${ic}</span><div><b>${h(w.loc)} ${tx} ${r(w.tmin)}–${r(w.tmax)}°C</b>
+      <div class="muted small">${w.src === 'fc' ? `降雨機率 ${w.pop ?? '–'}% · 雨量 ${w.rain ?? 0} mm · 預報` : `去年同一天的實際天氣（僅供參考）· 雨量 ${w.rain ?? 0} mm<br>正式預報約 ${md(addDays(d, -15))} 起提供`}</div></div></div>
+    ${tips.map(t => `<div class="wx-tip">${t}</div>`).join('')}${rainy}</div>`;
+}
 function renderDaySummary() {
   const d = S.day, items = dayItems(d), stops = items.map(i => byId[i.place]).filter(Boolean);
   const areas = [...new Set(stops.map(p => p.area).filter(a => a && a !== '未定位'))];
   const times = items.map(i => i.time).filter(Boolean).sort();
   const closed = stops.filter(p => closedDays(p).includes(d)).map(p => p.name);
   const rec = Store.of('summary').find(r => r.date === d);
-  $('#daySummary').innerHTML = `<div class="sum-card">
+  $('#daySummary').innerHTML = `<div class="sum-card">${wxHtml(d)}
     <div class="sum-auto">
       ${areas.length ? `<span>📍 ${areas.map(h).join(' → ')}</span>` : '<span>📍 還沒排地點</span>'}
       ${stops.length ? `<span>🍽️ ${stops.length} 站</span>` : ''}${times.length ? `<span>🕒 ${times[0]}–${times[times.length - 1]}</span>` : ''}
       ${closed.length ? `<span class="badge warn">⚠️ ${closed.map(h).join('、')} 今天公休</span>` : ''}
+      ${(() => { const hard = stops.filter(p => accessOf(p).stroller === 'hard').map(p => p.name); return hard.length ? `<span class="badge warn">🚼 ${hard.map(h).join('、')} 建議帶背巾</span>` : ''; })()}
     </div>
     <button class="sum-note" data-sumedit>
       ${rec && rec.text ? `<div class="sum-by">${rec.owner ? av(rec.owner) : ''}<b>${rec.owner ? h(memberName(rec.owner)) + ' 的今日重點' : '今日重點'}</b><span class="muted small">${h(memberName(rec.by))} · ${h(fmtTs(rec.ts))}</span></div>
@@ -521,7 +616,7 @@ function renderPlan() {
   $('#hero').innerHTML = `<div class="eyebrow">${h(trip.eyebrow || CITY().nameEn + ' · ' + trip.members.length + ' people')}</div><h1>${h(trip.title)}</h1><div class="dates">${h(trip.subtitle)}</div>
     <div class="row"><div class="av-stack">${trip.members.map(m => av(m.id)).join('')}</div>${cnt}</div>
     <div class="stats"><span>📍 ${places.length} 個候選</span><span>🗓️ ${plannedIds().size} 個已排</span>${S.me ? `<span>★ 我收藏 ${favsOf(S.me).size}</span>` : ''}${sheetPlan.updated ? `<span>📄 Sheet ${h(fmtTs(sheetPlan.updated))} 更新</span>` : ''}</div>`;
-  $('#dayTabs').innerHTML = trip.dates.map(d => `<button class="daytab ${d === S.day ? 'on' : ''} ${d === td ? 'today' : ''}" data-day="${d}"><b>D${dayNo(d)}</b><small>${dayLabel(d)}</small></button>`).join('');
+  $('#dayTabs').innerHTML = trip.dates.map(d => `<button class="daytab ${d === S.day ? 'on' : ''} ${d === td ? 'today' : ''}" data-day="${d}"><b>D${dayNo(d)}</b><small>${dayLabel(d)}</small>${wxOf(d)?.code != null ? `<i class="wx-tab">${WMO(wxOf(d).code)[0]}</i>` : ''}</button>`).join('');
   const items = dayItems(S.day), lod = lodgingOn(S.day);
   const stops = items.filter(i => byId[i.place]);
   $('#dayHead').innerHTML = `<div><h2>D${dayNo(S.day)} · ${dayLabel(S.day)}</h2><div class="muted">${stops.length} 個地點${items.length - stops.length ? ` · ${items.length - stops.length} 個交通／提醒` : ''}</div></div>
@@ -543,7 +638,7 @@ function renderPlan() {
           <div class="tl-time">${h(it.time || '')}${it.time ? ' · ' : ''}${h(it.slot || '')}</div>
           <h4>${t.icon} ${h(p.name)}</h4>
           <div class="meta"><span>${h(p.subcat || p.type)}</span><span>${h(p.area)}</span>${it.fromSheet ? '<span>📄 Sheet</span>' : it.mine && !it.fromTrip ? `<span>由 ${h(memberName(it.createdBy))} 加入</span>` : ''}</div>
-          <div class="tags" style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">${it.note ? `<span class="badge warn">📝 ${h(it.note)}</span>` : ''}${cd ? '<span class="badge warn">⚠️ 今天公休</span>' : ''}</div>
+          <div class="tags" style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px">${accBadge(p)}${it.note ? `<span class="badge warn">📝 ${h(it.note)}</span>` : ''}${cd ? '<span class="badge warn">⚠️ 今天公休</span>' : ''}</div>
         </div></div></li>`);
       if (p.lat) prev = p;
     } else {
@@ -687,15 +782,17 @@ function fillFilters() {
   $('#fDay').innerHTML += trip.dates.map(d => `<option value="${d}">D${dayNo(d)} ${dayLabel(d)} 有開</option>`).join('');
   ['#q', '#fArea', '#fDay', '#fSort'].forEach(s => $(s).addEventListener('input', renderList));
   $('#fFav').onclick = () => { S.favOnly = !S.favOnly; renderList(); };
+  $('#fEasy').onclick = () => { S.easyOnly = !S.easyOnly; renderList(); };
+  $('#fIndoor').onclick = () => { S.indoorOnly = !S.indoorOnly; renderList(); };
 }
 function renderList() {
   const q = $('#q').value.trim().toLowerCase(), fa = $('#fArea').value, fd = $('#fDay').value, fs = $('#fSort').value, mine = favsOf(S.me);
-  const base = places.filter(p => (!fa || p.area === fa) && (!fd || !closedDays(p).includes(fd)) && (!S.favOnly || mine.has(p.id))
+  const base = places.filter(p => (!fa || p.area === fa) && (!fd || !closedDays(p).includes(fd)) && (!S.favOnly || mine.has(p.id)) && (!S.easyOnly || accessOf(p).stroller === 'easy') && (!S.indoorOnly || p.indoor)
     && (!q || [p.name, p.name_en, p.subcat, p.note, p.area].join(' ').toLowerCase().includes(q)));
   $('#typeChips').innerHTML = `<button class="chip ${!S.type ? 'on' : ''}" data-type="">全部<span class="n">${base.length}</span></button>` +
     TYPES.map(t => [t, base.filter(p => p.type === t.name).length]).filter(x => x[1]).map(([t, n]) =>
       `<button class="chip ${S.type === t.name ? 'on' : ''}" data-type="${t.name}"><i class="sw" style="background:var(${t.v})"></i>${t.icon} ${t.name}<span class="n">${n}</span></button>`).join('');
-  $('#fFav').classList.toggle('on', S.favOnly);
+  $('#fFav').classList.toggle('on', S.favOnly); $('#fEasy').classList.toggle('on', !!S.easyOnly); $('#fIndoor').classList.toggle('on', !!S.indoorOnly);
   const pop = p => trip.members.filter(m => favsOf(m.id).has(p.id)).length * 10 + (p.sharedBy?.length || 0) * 3 + (p.ig?.length || 0) + (p.src?.includes('sheet') ? 2 : 0);
   const key = { votes: p => -pop(p), name: p => p.name, dist: p => S.pos && p.lat ? dist(...S.pos, p.lat, p.lng) : 1e9 }[fs];
   const L2 = base.filter(p => !S.type || p.type === S.type).sort((a, b) => { const x = key(a), y = key(b); return x < y ? -1 : x > y ? 1 : 0; });
@@ -750,7 +847,7 @@ const curSym = c => c === CUR().local ? CUR().localSym : c === CUR().home ? CUR(
 const twd = (v, date) => `≈ ${HSYM}${fmt(toTwd(v, CUR().local, date || SETTLE_DAY()))}`;
 function norm(e) { // 相容舊格式
   return { ...e, at: e.at || (e.date ? e.date + 'T12:00' : (e.createdAt || e.ts || '').slice(0, 16)), people: e.people || e.split || trip.members.map(m => m.id),
-    mode: e.mode || 'equal', cat: e.cat || 'other', shares: e.shares || {} };
+    mode: e.mode || 'equal', cat: e.cat || 'other', shares: e.shares || {}, pay: e.pay || 'card' };
 }
 function owed(e) { // 每人應負擔（基準幣）
   e = norm(e); const total = toBase(+e.amount, e.currency, dOf(e)), out = {};
@@ -784,7 +881,8 @@ function renderMoney() {
     $('#moneyHero').innerHTML = `<div class="k">總花費</div><div class="v">${SYM}${fmt(L0.total)}<small>≈ ${HSYM}${fmt(L0.totalTwd)}</small></div>
       <div class="grid3"><div><span class="k">筆數</span><b>${L0.ex.length}</b></div>
         <div><span class="k">今天</span><b>${SYM}${fmt(spentToday)}</b></div>
-        <div><span class="k">每日平均</span><b>${SYM}${fmt(L0.total / daysSpent)}</b></div></div>`;
+        <div><span class="k">每日平均</span><b>${SYM}${fmt(L0.total / daysSpent)}</b></div></div>
+      <div class="pay-split">${PAYS.map(x => `<span>${x.icon} ${x.name} <b>${SYM}${fmt(L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0))}</b></span>`).join('')}</div>`;
   } else
   $('#moneyHero').innerHTML = `<div class="k">團體總花費</div><div class="v">${SYM}${fmt(L0.total)}<small>≈ ${HSYM}${fmt(L0.totalTwd)}</small></div>
     <div class="grid3">
@@ -802,16 +900,18 @@ function renderMoney() {
     body.innerHTML = Object.entries(groups).map(([d, es]) => `<div class="day-group"><span>${trip.dates.includes(d) ? `D${dayNo(d)} · ` : ''}${dayLabel(d)} · ${es.length} 筆</span><span>小計 ${SYM}${fmt(sub(es))}${me ? `<small> · 我 ${SYM}${fmt(mySub(es))}</small>` : ''}</span></div>` +
       es.map(e => { const c = CAT[e.cat] || CAT.other, mine = me ? owed(e)[me] || 0 : null;
         return `<button class="exp" data-exp="${e.id}"><div class="icon-tile sm" style="--c:var(--seq)">${c.icon}</div>
-          <div class="body"><div class="t">${e.photo ? '📷 ' : ''}${h(e.title)}</div><div class="s">${e.at.slice(11, 16)} · ${trip.noSplit ? h(c.name) : `${h(memberName(e.payer))} 付 · ${e.people.length === trip.members.length ? '全部人' : e.people.length + ' 人'}${{ ratio: '·比例', amount: '·指定金額' }[e.mode] || ''}`}</div></div>
+          <div class="body"><div class="t">${e.photo ? '📷 ' : ''}${h(e.title)}</div><div class="s">${e.at.slice(11, 16)} · ${trip.noSplit ? `${h(c.name)} · ${PAY[e.pay].icon} ${PAY[e.pay].name}` : `${h(memberName(e.payer))} 付 · ${e.people.length === trip.members.length ? '全部人' : e.people.length + ' 人'}${{ ratio: '·比例', amount: '·指定金額' }[e.mode] || ''}`}</div></div>
           <div class="amt">${curSym(e.currency)}${fmt(+e.amount)}${e.currency !== CUR().local ? `<small class="muted">≈ ${SYM}${fmt(toBase(+e.amount, e.currency, dOf(e)))} · ${fxOn(dOf(e)).rate}</small>` : ''}${mine != null ? `<small class="${mine ? '' : 'muted'}">${mine ? '我 ¥' + fmt(mine) : '與我無關'}</small>` : ''}</div></button>`; }).join('')).join('') +
       `<div class="grand"><span>總計 · ${L0.ex.length} 筆</span><b>${SYM}${fmt(L0.total)}</b><small>≈ ${HSYM}${fmt(L0.totalTwd)}（每筆用當天台銀匯率）${me ? ` · 我 ${SYM}${fmt(L0.share[me])}` : ''}</small></div>`;
   } else if (S.mview === 'daily') {
     const days = [...new Set([...trip.dates, ...L0.ex.map(e => e.at.slice(0, 10))])].sort(), ms = trip.noSplit ? [] : trip.members;
-    const cell = (d, id) => L0.ex.filter(e => e.at.slice(0, 10) === d).reduce((s, e) => s + (id ? owed(e)[id] || 0 : toBase(+e.amount, e.currency, dOf(e))), 0);
-    body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>每日小計</h3><span class="muted small">${trip.noSplit ? `${SYM}` : `每人＝應負擔金額（${SYM}）`}</span></div>
-      <div class="matrix"><table class="daily"><tr><th>日期</th>${ms.map(m => `<th>${av(m.id)}</th>`).join('')}<th>小計</th></tr>
-      ${days.map(d => `<tr><td>${trip.dates.includes(d) ? `<b>D${dayNo(d)}</b> ` : ''}${md(d)}<div class="fx-cell">匯率 ${fxOn(d).rate}</div></td>${ms.map(m => { const v = cell(d, m.id); return `<td class="${v ? '' : 'muted'}">${v ? fmt(v) : '–'}</td>`; }).join('')}<td><b>${fmt(cell(d))}</b></td></tr>`).join('')}
-      <tr class="total"><td>總計</td>${ms.map(m => `<td>${fmt(L0.share[m.id])}</td>`).join('')}<td>${fmt(L0.total)}</td></tr></table></div>
+    const cell = (d, id) => L0.ex.filter(e => e.at.slice(0, 10) === d).reduce((s, e) => s + (!id ? toBase(+e.amount, e.currency, dOf(e)) : PAY[id] ? (e.pay === id ? toBase(+e.amount, e.currency, dOf(e)) : 0) : owed(e)[id] || 0), 0);
+    const cols = trip.noSplit ? PAYS.map(x => ({ id: x.id, head: x.icon, tot: L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0) }))
+      : ms.map(m => ({ id: m.id, head: av(m.id), tot: L0.share[m.id] }));
+    body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>每日小計</h3><span class="muted small">${trip.noSplit ? `💳 信用卡 · 💵 現金（${SYM}）` : `每人＝應負擔金額（${SYM}）`}</span></div>
+      <div class="matrix"><table class="daily"><tr><th>日期</th>${cols.map(c => `<th>${c.head}</th>`).join('')}<th>小計</th></tr>
+      ${days.map(d => `<tr><td>${trip.dates.includes(d) ? `<b>D${dayNo(d)}</b> ` : ''}${md(d)}<div class="fx-cell">匯率 ${fxOn(d).rate}</div></td>${cols.map(m => { const v = cell(d, m.id); return `<td class="${v ? '' : 'muted'}">${v ? fmt(v) : '–'}</td>`; }).join('')}<td><b>${fmt(cell(d))}</b></td></tr>`).join('')}
+      <tr class="total"><td>總計</td>${cols.map(c => `<td>${fmt(c.tot)}</td>`).join('')}<td>${fmt(L0.total)}</td></tr></table></div>
       <div class="muted small" style="margin-top:8px">總計 ${SYM}${fmt(L0.total)}（≈ ${HSYM}${fmt(L0.totalTwd)}）<br>匯率＝1 ${CUR().localName}兌${CUR().homeName}，${CUR().fxSource}當天匯率；沒有牌價的日子沿用前一營業日。${CUR().homeName}記的帳也用當天匯率換成${CUR().localName}分攤。</div></div>`;
   } else if (S.mview === 'settle') {
     const sd = SETTLE_DAY(), fxs = fxOn(sd);
@@ -842,6 +942,8 @@ function renderMoney() {
     const byCat = CATS.map(c => ({ c, v: L0.ex.filter(e => e.cat === c.id).reduce((s, e) => s + toBase(+e.amount, e.currency, dOf(e)), 0) })).filter(x => x.v).sort((a, b) => b.v - a.v);
     const mx = byCat[0]?.v || 1;
     body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>花費分類</h3><span class="muted small">${trip.noSplit ? '合計' : '團體合計'}</span></div>` +
+      (trip.noSplit && L0.total ? PAYS.map(x => { const v = L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0);
+        return `<div class="catbar"><span>${x.icon} ${x.name}</span><div class="track"><div class="fill" style="width:${v / L0.total * 100}%"></div></div><span class="v">${SYM}${fmt(v)}</span></div>`; }).join('') + '<hr class="soft">' : '') +
       (byCat.map(x => `<div class="catbar" data-tip="${x.c.name}：${SYM}${fmt(x.v)}（${Math.round(x.v / L0.total * 100)}%）"><span>${x.c.icon} ${x.c.name}</span><div class="track"><div class="fill" style="width:${x.v / mx * 100}%"></div></div><span class="v">${SYM}${fmt(x.v)}</span></div>`).join('') || '<div class="muted">還沒有資料</div>') + '</div>';
   }
 }
@@ -850,7 +952,7 @@ function openExpense(id) {
   const old = id ? norm(Store.of('exp').find(r => r.id === id)) : null;
   const at0 = old?.at || nowLocal();
   const F = old ? { ...old, shares: { ...old.shares }, people: [...old.people], preview: null, ocrMsg: '' } : {
-    amount: '', currency: Pref.get('cur', CUR().local), title: '', cat: 'food', at: at0, payer: S.me || trip.members[0].id,
+    amount: '', currency: Pref.get('cur', CUR().local), pay: Pref.get('pay', 'card'), title: '', cat: 'food', at: at0, payer: S.me || trip.members[0].id,
     people: trip.members.filter(m => presentOn(m.id, at0.slice(0, 10))).map(m => m.id), mode: 'equal', shares: {} };
   let touchedPeople = !!old;
   const total = () => +F.amount || 0;
@@ -879,7 +981,8 @@ function openExpense(id) {
         ${F.ocrMsg ? `<div class="small ${F.ocrBad ? 'neg' : 'muted'}">${h(F.ocrMsg)}</div>` : ''}</div>
     </div>
     <div class="seg" data-g="currency">${[CUR().local, CUR().home].map(c => `<button class="${F.currency === c ? 'on' : ''}" data-v="${c}">${c === CUR().local ? CUR().localSym + ' ' + CUR().localName : CUR().homeSym + ' ' + CUR().homeName}</button>`).join('')}</div>
-    <div class="field"><label for="fTitle">這次是什麼</label><input class="input" id="fTitle" placeholder="例：Peter Luger 午餐、Suica 加值" value="${h(F.title)}" maxlength="40"></div>
+    <div class="seg" data-g="pay">${PAYS.map(x => `<button class="${(F.pay || 'card') === x.id ? 'on' : ''}" data-v="${x.id}">${x.icon} ${x.name}</button>`).join('')}</div>
+    <div class="field"><label for="fTitle">這次是什麼</label><input class="input" id="fTitle" placeholder="例：一蘭拉麵、ICOCA 加值" value="${h(F.title)}" maxlength="40"></div>
     <div class="field"><span class="field-label">類別</span><div class="cat-grid">${CATS.map(c => `<button class="cat-btn ${F.cat === c.id ? 'on' : ''}" data-cat="${c.id}"><i>${c.icon}</i>${c.name}</button>`).join('')}</div></div>
     <div class="field"><label for="fAt">消費時間</label><input class="input" id="fAt" type="datetime-local" value="${h(F.at)}"></div>
     ${trip.noSplit ? '' : `<div class="field"><span class="field-label">誰付的錢</span><div class="people">${trip.members.map(m => `<button class="person ${F.payer === m.id ? 'on' : ''}" data-payer="${m.id}">${av(m.id)}${h(m.name)}</button>`).join('')}</div></div>
@@ -919,7 +1022,7 @@ function openExpense(id) {
     };
     el.querySelector('#fAmt').oninput = e => { F.amount = e.target.value.replace(/[^\d.]/g, ''); if (F.mode === 'amount' && !touchedShares) { defaults(); el.querySelectorAll('[data-share]').forEach(i => i.value = F.shares[i.dataset.share]); } refresh(el); };
     el.querySelector('#fAt').onchange = e => { F.at = e.target.value; if (!touchedPeople) { keep(el); F.people = trip.members.filter(m => presentOn(m.id, F.at.slice(0, 10))).map(m => m.id); defaults(); draw(); } };
-    el.querySelectorAll('[data-g] button').forEach(b => b.onclick = () => { keep(el); const g = b.parentElement.dataset.g; F[g] = b.dataset.v; if (g === 'mode') { touchedShares = false; defaults(); } if (g === 'currency') Pref.set('cur', F.currency); draw(); });
+    el.querySelectorAll('[data-g] button').forEach(b => b.onclick = () => { keep(el); const g = b.parentElement.dataset.g; F[g] = b.dataset.v; if (g === 'mode') { touchedShares = false; defaults(); } if (g === 'currency') Pref.set('cur', F.currency); if (g === 'pay') Pref.set('pay', F.pay); draw(); });
     el.querySelectorAll('[data-cat]').forEach(b => b.onclick = () => { keep(el); F.cat = b.dataset.cat; draw(); });
     el.querySelectorAll('[data-payer]').forEach(b => b.onclick = () => { keep(el); F.payer = b.dataset.payer; draw(); });
     if (!trip.noSplit) el.querySelector('[data-all]').onclick = () => { keep(el); touchedPeople = true; F.people = F.people.length === trip.members.length ? [] : trip.members.map(m => m.id); defaults(); draw(); };
@@ -942,7 +1045,7 @@ function openExpense(id) {
     const shares = F.mode === 'equal' ? {} : Object.fromEntries(F.people.map(i => [i, +F.shares[i] || 0]));
     if (F.uploading) { toast('照片上傳中…'); await F.uploading; }
     if (F.preview && !F.photo) toast('照片沒上傳成功（後台可能還沒更新），帳先記下了');
-    await Store.put({ ...(old || {}), photo: F.photo || old?.photo || null, kind: 'exp', amount: t, currency: F.currency, title: F.title.trim() || CAT[F.cat].name, cat: F.cat, at: F.at,
+    await Store.put({ ...(old || {}), photo: F.photo || old?.photo || null, kind: 'exp', amount: t, currency: F.currency, pay: F.pay || 'card', title: F.title.trim() || CAT[F.cat].name, cat: F.cat, at: F.at,
       payer: F.payer, people: F.people, mode: F.mode, shares, split: undefined, date: undefined });
     closeSheet(); toast(old ? '已更新' : '已記下 ✓'); S.mview = 'list'; renderMoney();
   }
@@ -1070,7 +1173,9 @@ async function main() {
   renderMe(); fillFilters(); bind(); bindPrep();
   await Store.load(); renderSync(); mergeUserPlaces();
   render();
+  loadWeather();
   setInterval(refresh, 20000);
+  setInterval(loadWeather, 3 * 3600e3);
   document.addEventListener('visibilitychange', refresh);
   if (!S.me) setTimeout(pickMe, 400);
 }

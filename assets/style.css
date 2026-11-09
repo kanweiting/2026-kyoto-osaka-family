@@ -419,3 +419,20 @@ main { padding-top: calc(var(--appbar) + var(--safe-t)); padding-bottom: calc(va
 .st-ok.st-off { background: var(--card-2); color: var(--ink-3); }
 .settle.is-paid { box-shadow: 0 0 0 1.5px var(--brand), var(--shadow); }
 .flag-emoji { font-size: 20px; line-height: 1; }
+
+/* 天氣 */
+.wx { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.wx-main { display: flex; gap: 10px; align-items: center; }
+.wx-ic { font-size: 30px; line-height: 1; }
+.wx-tip { margin-top: 6px; font-size: 13px; font-weight: 600; color: var(--warn-ink); background: var(--warn-bg); border-radius: 10px; padding: 5px 10px; }
+.wx-alt { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; font-size: 13px; font-weight: 700; }
+.wx-alt .chip { padding: 4px 10px; font-size: 12px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wx-tab { display: block; font-style: normal; font-size: 13px; line-height: 1.2; }
+/* 推車／無障礙 */
+.acc-box { margin-top: 14px; background: var(--card-2); border-radius: 14px; padding: 10px 12px; }
+.acc-h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.acc-row { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; padding: 3px 0; }
+.acc-row > span { color: var(--ink-3); }
+/* 付款方式 */
+.pay-split { display: flex; gap: 16px; margin-top: 12px; font-size: 13px; opacity: .9; flex-wrap: wrap; }
+hr.soft { border: 0; border-top: 1px solid var(--line); margin: 10px 0; }
