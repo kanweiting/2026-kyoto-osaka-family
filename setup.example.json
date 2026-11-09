@@ -1,0 +1,91 @@
+{
+  "_說明": "複製成 setup.json 改成你們的資料，再跑 python tools/new_trip.py setup.json。底線開頭的欄位會被忽略。",
+  "title": "2027 大阪三人行",
+  "short": "2027 大阪行",
+  "homeScreenName": "大阪行",
+  "start": "2027-03-20",
+  "end": "2027-03-24",
+  "members": [
+    {
+      "id": "alice",
+      "name": "安",
+      "en": "Alice",
+      "aliases": [
+        "Alice Chen"
+      ]
+    },
+    {
+      "id": "bob",
+      "name": "柏",
+      "en": "Bob",
+      "aliases": [
+        "bob.lin"
+      ]
+    },
+    {
+      "id": "cara",
+      "name": "卡",
+      "en": "Cara",
+      "until": "2027-03-23",
+      "aliases": []
+    }
+  ],
+  "_city說明": "有 preset 就套用 presets/<名稱>（目前有 tokyo）；沒有 preset 要自己填 name、nameEn、center[緯,經]、bbox[南,西,北,東]、region（國碼）、addressKeys（地址裡代表在這個城市的字），data/areas.json 可留空陣列",
+  "city": {
+    "name": "大阪",
+    "nameEn": "Osaka",
+    "center": [
+      34.6937,
+      135.5023
+    ],
+    "bbox": [
+      34.5,
+      135.3,
+      34.85,
+      135.7
+    ],
+    "region": "jp",
+    "addressKeys": [
+      "Osaka",
+      "大阪"
+    ],
+    "flag": "🇯🇵",
+    "heroEmoji": "🏯"
+  },
+  "currency": {
+    "local": "JPY",
+    "localSym": "¥",
+    "localName": "日圓",
+    "home": "TWD",
+    "homeSym": "NT$",
+    "homeName": "台幣",
+    "fxSource": "臺灣銀行"
+  },
+  "fxFallback": 4.8,
+  "flights": [],
+  "lodging": {
+    "name": "飯店",
+    "address": "",
+    "lat": null,
+    "lng": null,
+    "station": ""
+  },
+  "days": {
+    "2027-03-20": [
+      {
+        "slot": "抵達",
+        "time": "13:00",
+        "title": "抵達關西機場",
+        "icon": "✈️"
+      }
+    ]
+  },
+  "_sheet說明": "選用：要用 Google Sheet 管理餐廳清單／每日安排就填 id（試算表網址 /d/ 後面那串，並設成「知道連結的人都能檢視」）",
+  "sheet": {
+    "id": "",
+    "listTab": "餐廳清單",
+    "planTab": "餐廳安排"
+  },
+  "_sheetApi說明": "選用：部署 apps-script/Code.gs 後的 /exec 網址，填了才會多人同步（記帳、收藏、行程）",
+  "sheetApi": ""
+}

@@ -1,0 +1,896 @@
+[
+{
+"id": "k1",
+"name": "京都鐵道博物館",
+"name_en": "Kyoto Railway Museum",
+"type": "景點",
+"subcat": "親子／博物館",
+"closed": "三",
+"note": "火車迷必去，室內為主、推車好走；週三休館（以官網為準）",
+"price": "",
+"address": "",
+"area": "京都站/梅小路",
+"lat": 34.9874,
+"lng": 135.7426,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Railway%20Museum%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "火車迷必去，室內為主、推車好走；週三休館（以官網為準）"
+}
+]
+},
+{
+"id": "k2",
+"name": "京都水族館",
+"name_en": "Kyoto Aquarium",
+"type": "景點",
+"subcat": "親子／水族館",
+"closed": "",
+"note": "室內，冬天也舒服；就在梅小路公園裡",
+"price": "",
+"address": "",
+"area": "京都站/梅小路",
+"lat": 34.9876,
+"lng": 135.7494,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Aquarium%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "室內，冬天也舒服；就在梅小路公園裡"
+}
+]
+},
+{
+"id": "k3",
+"name": "梅小路公園",
+"name_en": "Umekoji Park",
+"type": "景點",
+"subcat": "公園",
+"closed": "",
+"note": "有大草皮和兒童遊具，可以跟鐵道博物館、水族館排同一天",
+"price": "",
+"address": "",
+"area": "京都站/梅小路",
+"lat": 34.987,
+"lng": 135.746,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Umekoji%20Park%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "有大草皮和兒童遊具，可以跟鐵道博物館、水族館排同一天"
+}
+]
+},
+{
+"id": "k4",
+"name": "京都國際漫畫博物館",
+"name_en": "Kyoto International Manga Museum",
+"type": "景點",
+"subcat": "親子／博物館",
+"closed": "",
+"note": "離住宿走路就到；有兒童繪本區（以官網公休日為準）",
+"price": "",
+"address": "",
+"area": "烏丸御池/三條",
+"lat": 35.0116,
+"lng": 135.7594,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20International%20Manga%20Museum%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "離住宿走路就到；有兒童繪本區（以官網公休日為準）"
+}
+]
+},
+{
+"id": "k5",
+"name": "錦市場",
+"name_en": "Nishiki Market",
+"type": "購物",
+"subcat": "市場／小吃",
+"closed": "",
+"note": "人多、走道窄，推車建議改背巾",
+"price": "",
+"address": "",
+"area": "河原町/祇園",
+"lat": 35.005,
+"lng": 135.765,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Nishiki%20Market%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "人多、走道窄，推車建議改背巾"
+}
+]
+},
+{
+"id": "k6",
+"name": "京都御苑",
+"name_en": "Kyoto Gyoen",
+"type": "景點",
+"subcat": "公園",
+"closed": "",
+"note": "大片碎石步道與草地，適合放電散步",
+"price": "",
+"address": "",
+"area": "二條城/御所",
+"lat": 35.0254,
+"lng": 135.7621,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Gyoen%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "大片碎石步道與草地，適合放電散步"
+}
+]
+},
+{
+"id": "k7",
+"name": "二條城",
+"name_en": "Nijo Castle",
+"type": "景點",
+"subcat": "世界遺產",
+"closed": "",
+"note": "離住宿 1 站地鐵；城內木地板要脫鞋，推車需寄放",
+"price": "",
+"address": "",
+"area": "二條城/御所",
+"lat": 35.0142,
+"lng": 135.7481,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Nijo%20Castle%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "離住宿 1 站地鐵；城內木地板要脫鞋，推車需寄放"
+}
+]
+},
+{
+"id": "k8",
+"name": "鴨川河畔（三條～四條）",
+"name_en": "Kamogawa River",
+"type": "景點",
+"subcat": "散步",
+"closed": "",
+"note": "平坦河堤，傍晚散步很舒服",
+"price": "",
+"address": "",
+"area": "河原町/祇園",
+"lat": 35.008,
+"lng": 135.7718,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kamogawa%20River%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "平坦河堤，傍晚散步很舒服"
+}
+]
+},
+{
+"id": "k9",
+"name": "八坂神社",
+"name_en": "Yasaka Shrine",
+"type": "景點",
+"subcat": "神社",
+"closed": "",
+"note": "",
+"price": "",
+"address": "",
+"area": "河原町/祇園",
+"lat": 35.0037,
+"lng": 135.7785,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Yasaka%20Shrine%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": []
+},
+{
+"id": "k10",
+"name": "清水寺",
+"name_en": "Kiyomizu-dera",
+"type": "景點",
+"subcat": "世界遺產",
+"closed": "",
+"note": "坡道、階梯多，推車辛苦，建議背巾；早上去人少",
+"price": "",
+"address": "",
+"area": "東山/清水",
+"lat": 34.9949,
+"lng": 135.785,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "坡道、階梯多，推車辛苦，建議背巾；早上去人少"
+}
+]
+},
+{
+"id": "k11",
+"name": "伏見稻荷大社",
+"name_en": "Fushimi Inari Taisha",
+"type": "景點",
+"subcat": "神社",
+"closed": "",
+"note": "千本鳥居前段就很好拍，帶小孩不必爬上山頂",
+"price": "",
+"address": "",
+"area": "伏見",
+"lat": 34.9671,
+"lng": 135.7727,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Fushimi%20Inari%20Taisha%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "千本鳥居前段就很好拍，帶小孩不必爬上山頂"
+}
+]
+},
+{
+"id": "k12",
+"name": "平安神宮",
+"name_en": "Heian Shrine",
+"type": "景點",
+"subcat": "神社",
+"closed": "",
+"note": "廣場空曠好推車；附近有京都市動物園",
+"price": "",
+"address": "",
+"area": "岡崎/平安神宮",
+"lat": 35.016,
+"lng": 135.7823,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Heian%20Shrine%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "廣場空曠好推車；附近有京都市動物園"
+}
+]
+},
+{
+"id": "k13",
+"name": "京都市動物園",
+"name_en": "Kyoto City Zoo",
+"type": "景點",
+"subcat": "親子／動物園",
+"closed": "一",
+"note": "小而美、好逛，適合 1–3 歲；週一休（以官網為準）",
+"price": "",
+"address": "",
+"area": "岡崎/平安神宮",
+"lat": 35.0128,
+"lng": 135.786,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20City%20Zoo%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "小而美、好逛，適合 1–3 歲；週一休（以官網為準）"
+}
+]
+},
+{
+"id": "k14",
+"name": "京都府立植物園",
+"name_en": "Kyoto Botanical Gardens",
+"type": "景點",
+"subcat": "公園",
+"closed": "",
+"note": "溫室冬天也能逛",
+"price": "",
+"address": "",
+"area": "北山/金閣寺",
+"lat": 35.0497,
+"lng": 135.7631,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Botanical%20Gardens%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "溫室冬天也能逛"
+}
+]
+},
+{
+"id": "k15",
+"name": "金閣寺",
+"name_en": "Kinkaku-ji",
+"type": "景點",
+"subcat": "世界遺產",
+"closed": "",
+"note": "",
+"price": "",
+"address": "",
+"area": "北山/金閣寺",
+"lat": 35.0394,
+"lng": 135.7292,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kinkaku-ji%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": []
+},
+{
+"id": "k16",
+"name": "嵐山竹林小徑",
+"name_en": "Arashiyama Bamboo Grove",
+"type": "景點",
+"subcat": "散步",
+"closed": "",
+"note": "建議早上去；可排一天嵐山",
+"price": "",
+"address": "",
+"area": "嵐山",
+"lat": 35.017,
+"lng": 135.6713,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Arashiyama%20Bamboo%20Grove%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "建議早上去；可排一天嵐山"
+}
+]
+},
+{
+"id": "k17",
+"name": "渡月橋",
+"name_en": "Togetsukyo Bridge",
+"type": "景點",
+"subcat": "散步",
+"closed": "",
+"note": "",
+"price": "",
+"address": "",
+"area": "嵐山",
+"lat": 35.0128,
+"lng": 135.6778,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Togetsukyo%20Bridge%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": []
+},
+{
+"id": "k18",
+"name": "京都站／京都塔",
+"name_en": "Kyoto Station / Kyoto Tower",
+"type": "購物",
+"subcat": "百貨／伴手禮",
+"closed": "",
+"note": "伊勢丹、Porta 地下街，雨天備案；有哺乳室",
+"price": "",
+"address": "",
+"area": "京都站/梅小路",
+"lat": 34.9858,
+"lng": 135.7588,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kyoto%20Station%20/%20Kyoto%20Tower%20Kyoto",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "伊勢丹、Porta 地下街，雨天備案；有哺乳室"
+}
+]
+},
+{
+"id": "k19",
+"name": "海遊館",
+"name_en": "Osaka Aquarium Kaiyukan",
+"type": "景點",
+"subcat": "親子／水族館",
+"closed": "",
+"note": "大阪親子首選，全室內；旁邊有天保山摩天輪",
+"price": "",
+"address": "",
+"area": "大阪灣/天保山",
+"lat": 34.6545,
+"lng": 135.429,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Osaka%20Aquarium%20Kaiyukan%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "大阪親子首選，全室內；旁邊有天保山摩天輪"
+}
+]
+},
+{
+"id": "k20",
+"name": "KidsPlaza Osaka（大阪兒童樂園館）",
+"name_en": "Kids Plaza Osaka",
+"type": "景點",
+"subcat": "親子／兒童館",
+"closed": "",
+"note": "室內兒童博物館，有幼兒專區（公休日以官網為準）",
+"price": "",
+"address": "",
+"area": "大阪梅田",
+"lat": 34.7066,
+"lng": 135.5115,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kids%20Plaza%20Osaka%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "室內兒童博物館，有幼兒專區（公休日以官網為準）"
+}
+]
+},
+{
+"id": "k21",
+"name": "大阪城公園",
+"name_en": "Osaka Castle Park",
+"type": "景點",
+"subcat": "公園",
+"closed": "",
+"note": "園區很大，推車好走",
+"price": "",
+"address": "",
+"area": "大阪城",
+"lat": 34.6873,
+"lng": 135.5262,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Osaka%20Castle%20Park%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "園區很大，推車好走"
+}
+]
+},
+{
+"id": "k22",
+"name": "道頓堀",
+"name_en": "Dotonbori",
+"type": "購物",
+"subcat": "美食街",
+"closed": "",
+"note": "晚上人潮多，推車注意",
+"price": "",
+"address": "",
+"area": "難波/心齋橋",
+"lat": 34.6687,
+"lng": 135.5013,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Dotonbori%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "晚上人潮多，推車注意"
+}
+]
+},
+{
+"id": "k23",
+"name": "黑門市場",
+"name_en": "Kuromon Market",
+"type": "購物",
+"subcat": "市場／小吃",
+"closed": "",
+"note": "",
+"price": "",
+"address": "",
+"area": "難波/心齋橋",
+"lat": 34.6656,
+"lng": 135.5066,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Kuromon%20Market%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": []
+},
+{
+"id": "k24",
+"name": "天王寺動物園",
+"name_en": "Tennoji Zoo",
+"type": "景點",
+"subcat": "親子／動物園",
+"closed": "一",
+"note": "週一休（以官網為準）",
+"price": "",
+"address": "",
+"area": "天王寺",
+"lat": 34.651,
+"lng": 135.5085,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Tennoji%20Zoo%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "週一休（以官網為準）"
+}
+]
+},
+{
+"id": "k25",
+"name": "阿倍野 HARUKAS",
+"name_en": "Abeno Harukas",
+"type": "購物",
+"subcat": "百貨／展望台",
+"closed": "",
+"note": "近鐵百貨有嬰兒用品樓層、哺乳室",
+"price": "",
+"address": "",
+"area": "天王寺",
+"lat": 34.6459,
+"lng": 135.5135,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Abeno%20Harukas%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "近鐵百貨有嬰兒用品樓層、哺乳室"
+}
+]
+},
+{
+"id": "k26",
+"name": "阪急梅田本店",
+"name_en": "Hankyu Umeda",
+"type": "購物",
+"subcat": "百貨",
+"closed": "",
+"note": "雨天備案；有嬰兒休息室",
+"price": "",
+"address": "",
+"area": "大阪梅田",
+"lat": 34.7037,
+"lng": 135.4995,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Hankyu%20Umeda%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "雨天備案；有嬰兒休息室"
+}
+]
+},
+{
+"id": "k27",
+"name": "大阪環球影城",
+"name_en": "Universal Studios Japan",
+"type": "景點",
+"subcat": "主題樂園",
+"closed": "",
+"note": "1 歲多能玩的設施不多，任天堂區、芝麻街幼兒區可考慮",
+"price": "",
+"address": "",
+"area": "大阪灣/天保山",
+"lat": 34.6654,
+"lng": 135.4323,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=Universal%20Studios%20Japan%20Osaka",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"seed"
+],
+"sharedBy": [],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"comments": [
+{
+"src": "seed",
+"by": "行前整理",
+"text": "1 歲多能玩的設施不多，任天堂區、芝麻街幼兒區可考慮"
+}
+]
+}
+]

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <!-- 日之丸 -->
+  <circle cx="256" cy="232" r="150" fill="#e60033"/>
+  <!-- 東京鐵塔：白身＋橘色描邊，白底、紅日上都看得清楚 -->
+  <g fill="#ffffff" stroke="#ff5a13" stroke-width="9" stroke-linejoin="round">
+    <rect x="251" y="44" width="10" height="82" rx="3"/>
+    <polygon points="245,124 267,124 292,204 220,204"/>
+    <polygon points="226,222 286,222 330,326 182,326"/>
+    <path d="M186 350 H326 L404 474 H334 Q256 380 178 474 H108 Z"/>
+  </g>
+  <g fill="#ff5a13">
+    <rect x="204" y="198" width="104" height="28" rx="6"/>
+    <rect x="160" y="320" width="192" height="34" rx="7"/>
+    <rect x="212" y="268" width="88" height="14" rx="3"/>
+    <rect x="234" y="158" width="44" height="11" rx="2"/>
+    <rect x="128" y="440" width="256" height="0"/>
+  </g>
+</svg>
