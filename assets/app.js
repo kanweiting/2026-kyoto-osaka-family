@@ -1100,10 +1100,33 @@ const photoUrl = id => `https://drive.google.com/thumbnail?id=${encodeURICompone
 const photoLink = id => `https://drive.google.com/file/d/${encodeURIComponent(id)}/view`;
 
 /* ---------- 主流程 ---------- */
+/* ---------- 攻略（data/guides.json）：status 'todo' 的只顯示標題，標「待補充」 ---------- */
+let guides = [];
+const mdInline = t => h(t).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+function renderGuide() {
+  const cats = [...new Set(guides.map(g => g.cat))], cur = S.gcat || '';
+  $('#guideChips').innerHTML = `<button class="chip ${!cur ? 'on' : ''}" data-gcat="">全部<span class="n">${guides.length}</span></button>` +
+    cats.map(c => `<button class="chip ${cur === c ? 'on' : ''}" data-gcat="${h(c)}">${h(c)}<span class="n">${guides.filter(g => g.cat === c).length}</span></button>`).join('');
+  const list = guides.filter(g => !cur || g.cat === cur).sort((a, b) => (b.pin ? 1 : 0) - (a.pin ? 1 : 0) || (a.status === 'todo') - (b.status === 'todo'));
+  $('#guideList').innerHTML = list.map(g => `<button class="guide-card ${g.status === 'todo' ? 'todo' : ''}" data-guide="${h(g.id)}">
+      <span class="guide-ic">${g.icon || '📘'}</span><span class="guide-b"><b>${h(g.title)}</b><small>${h(g.summary || '')}</small>
+      <span class="guide-meta">${h(g.cat)}${g.status === 'todo' ? ' · 待補充' : g.updated ? ` · ${md(g.updated)} 更新` : ''}${g.pin ? ' · 📌 必看' : ''}</span></span></button>`).join('')
+    || '<div class="empty">還沒有攻略</div>';
+  $('#guideChips').onclick = e => { const b = e.target.closest('[data-gcat]'); if (b) { S.gcat = b.dataset.gcat; renderGuide(); } };
+  $('#guideList').onclick = e => { const b = e.target.closest('[data-guide]'); if (b) openGuide(b.dataset.guide); };
+}
+function openGuide(id) {
+  const g = guides.find(x => x.id === id); if (!g) return;
+  if (g.status === 'todo') return openSheet(`<h2>${g.icon || ''} ${h(g.title)}</h2><div class="sub">${h(g.summary || '')}</div><div class="empty" style="margin-top:12px">這篇還在整理中 ✍️</div>`);
+  openSheet(`<h2>${g.icon || ''} ${h(g.title)}</h2><div class="sub">${h(g.summary || '')}</div>
+    <div class="muted small" style="margin-top:4px">${g.updated ? `${md(g.updated)} 整理 · ` : ''}制度可能變動，以官方公告為準</div>
+    ${(g.sections || []).map(sec => `<div class="guide-sec"><h3>${h(sec.h)}</h3><ul>${sec.items.map(t => `<li>${mdInline(t)}</li>`).join('')}</ul></div>`).join('')}
+    ${(g.sources || []).length ? `<div class="sec-head" style="margin:16px 0 6px"><h3>資料來源</h3></div><div class="linklist">${g.sources.map(x => `<a href="${h(x.url)}" target="_blank" rel="noopener"><span>${h(x.name)}</span><span class="muted">↗</span></a>`).join('')}</div>` : ''}`);
+}
 function render() {
   $$('.tab').forEach(s => s.hidden = s.id !== 'tab-' + S.tab);
   $$('.tabbar button').forEach(b => b.classList.toggle('on', b.dataset.tab === S.tab));
-  ({ plan: renderPlan, map: renderMap, list: renderList, prep: renderPrep, stats: renderStats, money: renderMoney })[S.tab]();
+  ({ plan: renderPlan, map: renderMap, list: renderList, prep: renderPrep, stats: renderStats, guide: renderGuide, money: renderMoney })[S.tab]();
 }
 function go(tab) { S.tab = tab; Pref.set('tab', tab); render(); scrollTo(0, 0); }
 function bind() {
@@ -1170,7 +1193,10 @@ async function main() {
   mergeUserPlaces();
   document.title = trip.title; $('#appTitle').innerHTML = `${trip.city?.flagSvg || (trip.city?.flag ? `<span class="flag-emoji">${h(trip.city.flag)}</span>` : '')}${h(trip.short || trip.title)}`;
   SYM = CUR().localSym; HSYM = CUR().homeSym;
-  S.tab = Pref.get('tab', 'plan');
+  for (const t of trip.hideTabs || []) $(`.tabbar [data-tab="${t}"]`)?.remove();
+  guides = await j(CFG.guidesFile || 'data/guides.json').catch(() => []);
+  if (!guides.length) $('.tabbar [data-tab="guide"]')?.remove();
+  S.tab = Pref.get('tab', 'plan'); if (!$(`.tabbar [data-tab="${S.tab}"]`)) S.tab = 'plan';
   renderMe(); fillFilters(); bind(); bindPrep();
   await Store.load(); renderSync(); mergeUserPlaces();
   render();

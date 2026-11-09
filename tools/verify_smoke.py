@@ -22,7 +22,7 @@ async def main():
         pg.on('pageerror', lambda e: errs.append(str(e))); pg.on('console', lambda m: m.type == 'error' and errs.append(m.text))
         await pg.goto(f'http://127.0.0.1:{port}/'); await pg.wait_for_timeout(1500)
         await pg.click('[data-me] >> nth=0'); await pg.wait_for_timeout(300)
-        for tab in ['plan', 'map', 'list', 'prep', 'stats', 'money']:
+        for tab in ['plan', 'map', 'list', 'prep', 'guide', 'money']:
             await pg.click(f'nav [data-tab={tab}]'); await pg.wait_for_timeout(700)
             await pg.screenshot(path=os.path.join(OUT, f'{tab}.png'))
         await pg.click('#addExpBtn'); await pg.wait_for_timeout(300)
