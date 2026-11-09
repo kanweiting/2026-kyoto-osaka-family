@@ -1,0 +1,25 @@
+name: Weather brief
+
+# 出發前自動整理整趟的天氣預報，開成一則 issue（GitHub 會寄信通知 repo 擁有者）
+on:
+  schedule:
+    - cron: '0 23 9 12 *'     # 12/10 08:00 台灣時間（D-3）
+    - cron: '0 23 11 12 *'    # 12/12 08:00 台灣時間（D-1）
+  workflow_dispatch: {}       # 可在 Actions 頁面手動按 Run，隨時產生一份
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/weather_brief.py --issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/?openExternalBrowser=1

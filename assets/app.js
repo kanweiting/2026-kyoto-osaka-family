@@ -617,7 +617,7 @@ function renderPlan() {
   $('#hero').innerHTML = `<div class="eyebrow">${h(trip.eyebrow || CITY().nameEn + ' · ' + trip.members.length + ' people')}</div><h1>${h(trip.title)}</h1><div class="dates">${h(trip.subtitle)}</div>
     <div class="row"><div class="av-stack">${trip.members.map(m => av(m.id)).join('')}</div>${cnt}</div>
     <div class="stats"><span>📍 ${places.length} 個候選</span><span>🗓️ ${plannedIds().size} 個已排</span>${S.me ? `<span>★ 我收藏 ${favsOf(S.me).size}</span>` : ''}${sheetPlan.updated ? `<span>📄 Sheet ${h(fmtTs(sheetPlan.updated))} 更新</span>` : ''}</div>`;
-  $('#dayTabs').innerHTML = trip.dates.map(d => `<button class="daytab ${d === S.day ? 'on' : ''} ${d === td ? 'today' : ''}" data-day="${d}"><b>D${dayNo(d)}</b><small>${dayLabel(d)}</small>${wxOf(d)?.code != null ? `<i class="wx-tab">${WMO(wxOf(d).code)[0]}</i>` : ''}</button>`).join('');
+  $('#dayTabs').innerHTML = trip.dates.map(d => `<button class="daytab ${d === S.day ? 'on' : ''} ${d === td ? 'today' : ''}" data-day="${d}"><b>D${dayNo(d)}</b><small>${dayLabel(d)}</small>${wxOf(d)?.code != null ? `<i class="wx-tab">${WMO(wxOf(d).code)[0]} ${Math.round(wxOf(d).tmin)}–${Math.round(wxOf(d).tmax)}°</i>` : ''}</button>`).join('');
   const items = dayItems(S.day), lod = lodgingOn(S.day);
   const stops = items.filter(i => byId[i.place]);
   $('#dayHead').innerHTML = `<div><h2>D${dayNo(S.day)} · ${dayLabel(S.day)}</h2><div class="muted">${stops.length} 個地點${items.length - stops.length ? ` · ${items.length - stops.length} 個交通／提醒` : ''}</div></div>
