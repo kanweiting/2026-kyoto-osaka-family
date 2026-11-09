@@ -34,10 +34,10 @@ function doPost(e) {
   } finally { lock.releaseLock(); }
 }
 
-// 收據照片 → Google Drive「東京行收據」資料夾，開放「知道連結的人可檢視」
+// 收據照片 → Google Drive「京阪親子行收據」資料夾，開放「知道連結的人可檢視」
 function savePhoto_(body) {
-  const it = DriveApp.getFoldersByName('東京行收據');
-  const folder = it.hasNext() ? it.next() : DriveApp.createFolder('東京行收據');
+  const it = DriveApp.getFoldersByName('京阪親子行收據');
+  const folder = it.hasNext() ? it.next() : DriveApp.createFolder('京阪親子行收據');
   const blob = Utilities.newBlob(Utilities.base64Decode(body.data), body.mime || 'image/jpeg', body.name || 'receipt.jpg');
   const f = folder.createFile(blob);
   f.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
