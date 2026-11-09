@@ -29,12 +29,6 @@
       "name": "婆",
       "en": "老婆",
       "aliases": []
-    },
-    {
-      "id": "longan",
-      "name": "圓",
-      "en": "桂圓",
-      "aliases": []
     }
   ],
   "flights": [],
@@ -181,6 +175,7 @@
     "listTab": "餐廳清單",
     "planTab": "餐廳安排"
   },
+  "noSplit": true,
   "lodgings": [
     {
       "name": "HANARE by Tokyu Stay Kyoto Sanjo",

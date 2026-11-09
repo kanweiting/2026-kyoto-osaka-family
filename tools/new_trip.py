@@ -55,6 +55,7 @@ trip = {
     'city': city, 'currency': S['currency'],
     'sheet': S.get('sheet') or {},
 }
+if S.get('noSplit'): trip['noSplit'] = True   # 一家人共用錢包：記帳只記花費，不分帳、不結算
 if S.get('lodgings'): trip['lodgings'] = S['lodgings']   # 多段住宿：依 checkin／checkout 決定每天從哪裡出發
 if S.get('todoTemplate') or todo: trip['todoTemplate'] = S.get('todoTemplate') or todo
 if S.get('days'): trip['days'].update(S['days'])

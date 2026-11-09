@@ -17,12 +17,6 @@
       "name": "婆",
       "en": "老婆",
       "aliases": []
-    },
-    {
-      "id": "longan",
-      "name": "圓",
-      "en": "桂圓",
-      "aliases": []
     }
   ],
   "city": {
@@ -229,5 +223,6 @@
     "listTab": "餐廳清單",
     "planTab": "餐廳安排"
   },
-  "sheetApi": ""
+  "sheetApi": "",
+  "noSplit": true
 }
