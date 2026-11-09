@@ -127,7 +127,7 @@ const today = () => nowLocal().slice(0, 10);
 const memberIdx = id => trip.members.findIndex(m => m.id === id);
 const enName = id => { const m = trip.members.find(x => x.id === id); return m?.en || m?.name || id; };
 const memberName = id => trip.members.find(m => m.id === id)?.name || id;
-const av = (id, cls = '') => { const i = memberIdx(id); return `<span class="av ${cls}" style="--c:var(--m${(i % 5) + 1})">${h((memberName(id) || '?').slice(0, 1).toUpperCase())}</span>`; };
+const av = (id, cls = '') => { const i = memberIdx(id); return `<span class="av ${cls}" style="--c:var(--m${(i % 5) + 1})">${h((trip.members[i]?.avatar || memberName(id) || '?').slice(0, 1).toUpperCase())}</span>`; };   // avatar：頭像上的字，可以跟名字不同
 const mapsUrl = p => p.map || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((p.name_en || p.name) + ' ' + CITY().nameEn)}`;
 const navUrl = p => p.lat && !p.approx ? `https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=transit` : mapsUrl(p);
 const kmText = d => d < 1 ? Math.round(d * 1000) + ' m' : d.toFixed(1) + ' km';

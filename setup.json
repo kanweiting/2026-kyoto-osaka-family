@@ -8,14 +8,16 @@
   "members": [
     {
       "id": "husband",
-      "name": "甘",
-      "en": "甘",
+      "name": "Jerry",
+      "en": "Jerry",
+      "avatar": "甘",
       "aliases": []
     },
     {
       "id": "wife",
-      "name": "包",
-      "en": "包",
+      "name": "Leila",
+      "en": "Leila",
+      "avatar": "包",
       "aliases": []
     }
   ],
