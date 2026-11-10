@@ -382,11 +382,12 @@ function openPlace(id) {
         ${a.note ? `<div class="muted small" style="margin-top:6px">${h(a.note)}</div>` : ''}
         <div class="muted small" style="margin-top:4px">${a.by ? `📍 ${h(memberName(a.by))} ${h(fmtTs(a.ts))} 現場回報` : '行前整理，以現場為準'}</div></div>`; })()}
     ${(p.comments || []).length ? `<div class="sec-head" style="margin:16px 0 8px"><h3>大家怎麼說</h3><span>${p.comments.length} 則</span></div>
-      <div class="comments">${p.comments.map(c => `<div class="cmt"><div class="cmt-by">${{ sheet: '📝', ig: '🎬', threads: '🧵', gmaps: '🗺️', google: '⭐' }[c.src] || '💬'} ${h(c.by)}${c.url ? ` · <a href="${h(c.url)}" target="_blank" rel="noopener">原文 ↗</a>` : ''}</div><div class="cmt-t">${h(c.text)}</div></div>`).join('')}</div>`
+      <div class="comments">${p.comments.map(c => `<div class="cmt"><div class="cmt-by">${{ sheet: '📝', ig: '🎬', threads: '🧵', gmaps: '🗺️', google: '⭐', web: '🔎' }[c.src] || '💬'} ${h(c.by)}${c.url ? ` · <a href="${h(c.url)}" target="_blank" rel="noopener">原文 ↗</a>` : ''}</div><div class="cmt-t">${h(c.text)}</div></div>`).join('')}</div>`
       : p.note ? `<div class="note-full">${h(p.note)}</div>` : ''}
     ${p.price ? `<div class="sub">💴 ${h(p.price)}</div>` : ''}
     <div class="linklist">
       <a href="${h(mapsUrl(p))}" target="_blank" rel="noopener"><span>📍 Google Maps</span><span class="muted">↗</span></a>
+      ${(p.links || []).map(x => `<a href="${h(x.url)}" target="_blank" rel="noopener"><span>🔗 ${h(x.name || x.url)}</span><span class="muted">↗</span></a>`).join('')}
       ${(p.threads || []).map((u, i) => `<a href="${h(u)}" target="_blank" rel="noopener"><span>🧵 Threads 貼文 ${i + 1}</span><span class="muted">↗</span></a>`).join('')}
       ${(p.ig || []).map((u, i) => `<a href="${h(u)}" target="_blank" rel="noopener"><span>${ICON.ig.replace('<svg', '<svg style="width:16px;height:16px;vertical-align:-3px"')} IG 介紹 ${i + 1}</span><span class="muted">↗</span></a>`).join('')}
     </div>

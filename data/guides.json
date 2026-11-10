@@ -51,13 +51,610 @@
       }
     ],
     "sources": [
-      { "name": "觀光廳：旅客專頁（リファンド方式）", "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html" },
-      { "name": "關西國際機場：タックスリファンドのご案内", "url": "https://www.kansai-airport.or.jp/tax-refund" },
-      { "name": "MATCHA：新免稅制度手續與注意事項", "url": "https://matcha-jp.com/jp/27460" }
+      {
+        "name": "觀光廳：旅客專頁（リファンド方式）",
+        "url": "https://www.mlit.go.jp/kankocho/tax-free/page01_000001_00021.html"
+      },
+      {
+        "name": "關西國際機場：タックスリファンドのご案内",
+        "url": "https://www.kansai-airport.or.jp/tax-refund"
+      },
+      {
+        "name": "MATCHA：新免稅制度手續與注意事項",
+        "url": "https://matcha-jp.com/jp/27460"
+      }
     ]
   },
-  { "id": "kix-to-city", "cat": "交通", "icon": "🚆", "title": "關西機場到京都／大阪市區", "summary": "HARUKA、利木津巴士、南海電鐵怎麼選，帶推車走哪條", "status": "todo" },
-  { "id": "kyoto-bus", "cat": "交通", "icon": "🚌", "title": "京都搭公車技巧", "summary": "上下車方式、怎麼付錢、推車上公車", "status": "todo" },
-  { "id": "day-pass", "cat": "交通", "icon": "🎫", "title": "一日券／交通票券", "summary": "地鐵、公車一日券划不划算", "status": "todo" },
-  { "id": "stroller-train", "cat": "親子", "icon": "🚼", "title": "推車搭電車：電梯與無障礙", "summary": "車站電梯、無障礙廁所、哺乳室怎麼找", "status": "todo" }
+  {
+    "id": "kix-to-city",
+    "cat": "交通",
+    "icon": "🚆",
+    "title": "關西機場到京都／大阪市區",
+    "summary": "到京都首選HARUKA優惠單程票，大阪梅田／難波搭巴士或南海皆可",
+    "updated": "2026-11-10",
+    "sections": [
+      {
+        "h": "12/13 機場→京都：三種選擇",
+        "items": [
+          "**HARUKA特急**：關西機場直達JR京都站，車程約75～80分",
+          "**利木津巴士**：T1一樓**8號乘車處**→京都站八條口，約85～90分",
+          "**南海電車**只到難波，去京都要再轉車，帶推車不建議",
+          "飯店在烏丸御池：到京都站後轉**地鐵烏丸線**2站即到"
+        ]
+      },
+      {
+        "h": "HARUKA：票價與購買",
+        "items": [
+          "外國旅客**HARUKA One-way Ticket**：機場→京都 大人**2,700円**",
+          "此價格為**2026/11/1起售出**的新價（之前是2,200円）",
+          "需持外國護照、以**短期滯在**入境，每人限購1張",
+          "官方註明**日本國內不販售**：請先在JR-WEST線上訂票購買",
+          "乘車日前1個月上午10點開放預約（12/13→11/13起）",
+          "到機場後用**訂位號碼＋4位密碼＋信用卡＋護照**在售票機取票",
+          "售票機取票需**IC晶片護照**，否則要到人工窗口",
+          "中途下車即作廢；需另劃指定席（可網路或售票機劃位）",
+          "一般票價（車資＋指定席特急券）約3,590円，未確認，以現場為準",
+          "官方座位表顯示2～9號車皆指定席；自由席是否保留未確認"
+        ]
+      },
+      {
+        "h": "利木津巴士：票價與搭法",
+        "items": [
+          "機場→京都站八條口：大人**2,800円**、小孩1,400円",
+          "機場發車**不收預約**，現場排隊，先到先上",
+          "車票在T1一樓巴士售票機買當日票，也可刷IC卡（僅單程價）",
+          "T1發車約15～20分1班，例：15:00、15:15、15:30、15:45、16:00",
+          "大件行李放行李艙，**每人2件內**、合計30kg內",
+          "推車是否需收折放行李艙：未確認，以現場為準",
+          "**幼兒（1～未滿6歲）每位大人可免費帶1名**；若獨佔座位收兒童票",
+          "八條口下車後走**八條口連絡通路電梯**接地鐵"
+        ]
+      },
+      {
+        "h": "我們家怎麼選（推車＋行李＋幼兒）",
+        "items": [
+          "大人2位：HARUKA優惠票 5,400円 vs 巴士 5,600円，價差不大",
+          "**推薦HARUKA**：可走動、有行李區，幼兒坐腿上免費",
+          "HARUKA到JR京都站後，地鐵電梯在**中央1改札**旁、5號出口",
+          "若累到不想轉乘，可京都站直接搭計程車到飯店（車資未確認）",
+          "14:45落地＋入境領行李，預估16點後才能上車（估計）"
+        ]
+      },
+      {
+        "h": "12/20 大阪飯店→機場（16:15班機）",
+        "items": [
+          "國際線建議起飛前2小時到機場：**約14:00前抵達**（建議值）",
+          "**住梅田**：大阪站前巴士1,800円、約60分，不能預約",
+          "**住梅田**：或HARUKA One-way（大阪→機場）大人1,900円",
+          "**住難波**：OCAT巴士1,400円、約48～50分",
+          "**住難波**：南海Rapi:t數位票大人**1,410円**（手機＋信用卡）",
+          "Rapi:t窗口票「關空Toku割」大人1,560円，2026/4/1起漲價",
+          "Rapi:t車上補買特急券**加收300円**，請上車前買好",
+          "Rapi:t難波→機場約38分（非官方資料，未確認）",
+          "南海全線可用**信用卡感應**刷進站；JR目前不行"
+        ]
+      },
+      {
+        "h": "小提醒",
+        "items": [
+          "JR售票機刷信用卡買票需輸入**PIN碼**，出發前確認",
+          "ICOCA**不能用信用卡購買**，請備日圓現金",
+          "遊客版ICOCA在機場JR綠色窗口售，2,000円含押金500円",
+          "從機場當日寄行李到京都飯店：Yamato需**12:30前**交件，趕不上"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "JR西日本 HARUKA One-way Ticket（英文）",
+        "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/oneway/haruka"
+      },
+      {
+        "name": "JR西日本 WEST QR HARUKA One-way Ticket（新舊價格）",
+        "url": "https://www.westjr.co.jp/global/en/ticket/westqr/haruka"
+      },
+      {
+        "name": "JR西日本 關西機場JR使用指南",
+        "url": "https://www.westjr.co.jp/travel-information/en/train-usage-guide/howto/guide"
+      },
+      {
+        "name": "JR西日本 ICOCA（遊客版）",
+        "url": "https://www.westjr.co.jp/global/en/howto/icoca"
+      },
+      {
+        "name": "JRおでかけネット はるか車両案内",
+        "url": "https://www.jr-odekake.net/railroad/train/haruka"
+      },
+      {
+        "name": "JR線ご利用案内（非官方）はるか料金",
+        "url": "https://jr-group.jp/haruka-ryokin"
+      },
+      {
+        "name": "駅探 関西空港→京都（時刻範例，非官方）",
+        "url": "https://ekitan.com/transit/fare/sf-5130/st-5198"
+      },
+      {
+        "name": "関西空港交通 京都駅線時刻表・運賃",
+        "url": "https://www.kate.co.jp/timetable/detail/KY"
+      },
+      {
+        "name": "京阪バス 関西空港リムジン京都系統",
+        "url": "https://www.keihanbus.jp/limousine/kix/limousine_kanku_kyoto.html"
+      },
+      {
+        "name": "関西空港交通 ご利用案内（幼児運賃・手荷物）",
+        "url": "https://www.kate.co.jp/guide"
+      },
+      {
+        "name": "関西空港交通 大阪駅前線",
+        "url": "https://www.kate.co.jp/timetable/detail/UM"
+      },
+      {
+        "name": "関西空港交通 なんば(OCAT)線",
+        "url": "https://www.kate.co.jp/timetable/detail/OC"
+      },
+      {
+        "name": "関西空港交通 関空のりば案内",
+        "url": "https://www.kate.co.jp/kix_busstop"
+      },
+      {
+        "name": "南海 2026年4月特急料金改定",
+        "url": "https://www.nankai.co.jp/lib/company/news/pdf/260122.pdf"
+      },
+      {
+        "name": "南海 企画乗車券発売額見直し（2026/4/1）",
+        "url": "https://www.nankai.co.jp/lib/traffic/information/pdf/260226_1.pdf"
+      },
+      {
+        "name": "南海 ラピートデジタルきっぷ",
+        "url": "http://www.nankai.co.jp/traffic/digital/rapit.html"
+      },
+      {
+        "name": "南海 関空トク割ラピートきっぷ",
+        "url": "http://www.nankai.co.jp/traffic/otoku/kankutokuwari.html"
+      },
+      {
+        "name": "ぶらっとなんば（Rapi:t所要時間，非官方）",
+        "url": "https://ebisubashi-magazine.com/nankai-rapit-namba"
+      },
+      {
+        "name": "関西エアポート ヤマト運輸T1 4F北店",
+        "url": "https://www.kansai-airports.co.jp/news/j-260717-pressrelease-kix-yamatotransport"
+      },
+      {
+        "name": "京都市交通局 地下鉄京都駅施設",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000009812.html"
+      }
+    ],
+    "pin": true
+  },
+  {
+    "id": "kyoto-bus",
+    "cat": "交通",
+    "icon": "🚌",
+    "title": "京都搭公車技巧",
+    "summary": "後門上前門下、下車付230円；推車可不收，但擠時改搭地鐵",
+    "updated": "2026-11-10",
+    "sections": [
+      {
+        "h": "上下車與付款",
+        "items": [
+          "京都市巴士**後門上車、前門下車**，下車時付費",
+          "市區均一區間：大人**230円**、小孩120円",
+          "部分車種前門上車（如觀光特急），看車門標示",
+          "下車前按鈴，**車完全停妥**再起身，推車更要等",
+          "零錢機可找零，可直接投1,000円鈔、500円硬幣",
+          "5,000、10,000円大鈔**車上不能找**，請先換開",
+          "非均一區間車：上車要**抽整理券或刷IC卡**，否則從起站計費",
+          "2026/12仍是230円；「市民優先價格」預計2027年度才上路"
+        ]
+      },
+      {
+        "h": "ICOCA／信用卡感應",
+        "items": [
+          "ICOCA、Suica等全國交通IC卡都能用，下車刷一下即可",
+          "**一張卡只能付一人**，兩位大人請各帶一張IC卡",
+          "要一次付兩人或付兒童票，下車前先告知司機",
+          "餘額不足時，車上只能用**1,000円鈔**加值",
+          "市巴士、地鐵**信用卡感應乘車**：官方規劃導入中，未確認已開通，以現場為準",
+          "一日券：首次乘車把卡插入讀卡機，之後出示背面日期"
+        ]
+      },
+      {
+        "h": "推車規定（市巴士官方）",
+        "items": [
+          "可**不收折**、孩子坐在推車上直接上車（雙人推車也可）",
+          "從中（後）門上車，推車**背對行進方向**、踩煞車",
+          "繫好推車安全帶，用座位上的**輔助帶固定**",
+          "行駛中家長要扶好，**停妥前不要解開**固定帶",
+          "車內擁擠時，司機可能請你收折推車",
+          "推車／輪椅位每車1～2處，已有人用就請等下一班",
+          "觀光特急巴士為**前門上、後門下**"
+        ]
+      },
+      {
+        "h": "擁擠路線與避開法",
+        "items": [
+          "京都站往清水寺、祇園、銀閣寺方向的觀光路線最擠",
+          "官方因此在**週六日、假日**開「觀光特急EX100／EX101」",
+          "觀光特急大人500円，有地鐵巴士一日券免加價",
+          "我們在京都多為**平日**（12/14～12/18），觀光特急沒開",
+          "市府呼籲**大件行李勿帶上市巴士**，請先寄放飯店",
+          "嵐山、金閣寺周邊秋季常有臨時改道，出發前查官網"
+        ]
+      },
+      {
+        "h": "這些情況改搭地鐵",
+        "items": [
+          "住烏丸御池＝地鐵**烏丸線、東西線**交會站，轉乘方便",
+          "去京都站、四條、今出川：烏丸線比巴士準時",
+          "去二條城、蹴上、東山、山科：東西線直達",
+          "地鐵車站出口到地面**電梯通常只有1處**，先查好出口",
+          "烏丸御池站電梯：**3-2號出口**、新風館內（5號出口北）",
+          "上下班尖峰（約7～9點、17～19點）巴士最擠，建議避開（估計）"
+        ]
+      },
+      {
+        "h": "幼兒車資",
+        "items": [
+          "**1～未滿6歲幼兒**：每位6歲以上同行者可免費帶2名",
+          "官方註明：**父母同行時，幼兒全部免費**",
+          "未滿1歲嬰兒不論人數皆免費"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "京都市交通局 市バスの乗り方",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000324695.html"
+      },
+      {
+        "name": "京都市交通局 車いす・ベビーカーを御利用のお客様へ",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000351007.html"
+      },
+      {
+        "name": "京都市交通局 定期券以外の運賃（市バス）",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000240682.html"
+      },
+      {
+        "name": "京都市交通局 運賃・乗車券Q&A",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000204850.html"
+      },
+      {
+        "name": "京都市交通局 ICカードQ&A",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000204851.html"
+      },
+      {
+        "name": "京都市交通局 市民優先価格の制度概要",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000351261.html"
+      },
+      {
+        "name": "京都市交通局 令和8年度予算（タッチ決済導入推進）",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/cmsfiles/contents/0000330/330095/R08_aramasi.pdf"
+      },
+      {
+        "name": "京都市バス・地下鉄ガイド 観光特急バス",
+        "url": "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/bus/limited_express.html"
+      },
+      {
+        "name": "京都市公式note 観光特急バスのススメ",
+        "url": "https://kyoto-city.note.jp/n/ne57de6574efe"
+      },
+      {
+        "name": "京都市 HANDS FREE KYOTO（大型手荷物持込自粛）",
+        "url": "https://hands-free.kyoto.travel/ja"
+      },
+      {
+        "name": "京都市交通局 烏丸御池駅施設",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000009448.html"
+      },
+      {
+        "name": "京都市 令和8年度予算案（地下鉄エレベーター）",
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/13_koutsu_kouhou.pdf"
+      },
+      {
+        "name": "乗りものニュース 前乗り後降り方式導入（2028年度末）",
+        "url": "https://trafficnews.jp/post/631220"
+      },
+      {
+        "name": "Glos Travel タッチ決済乗車まとめ（非官方）",
+        "url": "https://glostravel.com/ja/article/japan-tap-to-ride-credit-card"
+      }
+    ]
+  },
+  {
+    "id": "day-pass",
+    "cat": "交通",
+    "icon": "🎫",
+    "title": "一日券／交通票券",
+    "summary": "京都看當天搭幾次再買；大阪週末620円一日券最划算，幼兒都免費",
+    "updated": "2026-11-10",
+    "sections": [
+      {
+        "h": "京都：現行票券（2026）",
+        "items": [
+          "**地鐵・巴士一日券**：大人**1,100円**、小孩550円",
+          "範圍：地鐵全線＋市巴士全線＋京都巴士等（部分路線除外）",
+          "可搭週末觀光特急巴士，另有約50處景點優惠",
+          "販售：地鐵站窗口、市巴士地鐵案內所、市巴士車上（可能售完）",
+          "**地鐵一日券**：大人**800円**、小孩400円，只限地鐵",
+          "**地鐵・嵐電1day**：大人1,300円（只有大人票）",
+          "舊「巴士一日券」已於**2023/9停售、2024/3停用**"
+        ]
+      },
+      {
+        "h": "京都：值不值得買？",
+        "items": [
+          "巴士230円×**5次**＝1,150円，才超過一日券1,100円",
+          "我們推車行程一天多半2～4趟：**通常刷ICOCA就好**",
+          "當天要跑3個以上景點、巴士地鐵混搭才買一日券",
+          "地鐵1區220円起，一天搭4次以上再考慮地鐵一日券",
+          "幼兒免費，**只需算兩位大人**"
+        ]
+      },
+      {
+        "h": "大阪：現行票券（2026）",
+        "items": [
+          "**Enjoy Eco Card**：地鐵＋市巴士一日無限搭",
+          "平日大人**820円**、**週六日假日620円**，小孩310円",
+          "12/19（六）用週末版620円；12/18（五）是平日版",
+          "**大阪周遊卡**：1日3,500円、2日5,000円，含約40景點",
+          "周遊卡只有大人票，**限手機數位票**（需會員）",
+          "周遊卡關西機場版28小時5,300円（2026/10/1起售）",
+          "Osaka Metro可**刷信用卡感應**進站，但一律收大人票價"
+        ]
+      },
+      {
+        "h": "大阪：值不值得買？",
+        "items": [
+          "只逛景點不進付費設施：選**Enjoy Eco**就夠",
+          "周遊卡要當天進2～3個付費景點才回本，帶幼兒較難",
+          "12/18才從京都移動、12/20要趕飛機，周遊卡效益低（估計）"
+        ]
+      },
+      {
+        "h": "關西跨區：重要變化",
+        "items": [
+          "JR**關西地區周遊券（Kansai Area Pass）2026/9/30停售**",
+          "9/30前購買者仍可在有效期間使用",
+          "替代：JR**Kansai Mini Pass**3日3,000円（不含HARUKA等特急）",
+          "JR西日本QR 2day Pass：大人4,000円，限KANSAI MaaS購買",
+          "我們只在京都↔大阪移動一次，**跨區券多半不划算**（估計）",
+          "舊「ICOCA & HARUKA」套票：官網現只見HARUKA單程票，未確認"
+        ]
+      },
+      {
+        "h": "兒童票規則（官方確認）",
+        "items": [
+          "**JR**：幼兒（1～未滿6歲）免費，每位大人或兒童帶**2名內**",
+          "JR：第3名起、或幼兒**單獨佔用指定席**要付兒童票",
+          "**京都市巴士／地鐵**：每位同行者帶2名免費，父母同行全免",
+          "**Osaka Metro**：同行幼兒2名內免費，第3名起收兒童票",
+          "**利木津巴士**：每位大人只能免費帶1名，佔座位收兒童票",
+          "南海電鐵幼兒規定：未確認，以現場為準",
+          "未滿1歲嬰兒：以上業者皆免費"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "京都市交通局 地下鉄・バス1日券",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000028378.html"
+      },
+      {
+        "name": "京都市交通局 お得な乗車券",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000019521.html"
+      },
+      {
+        "name": "京都市交通局 定期券以外の運賃（地下鉄）",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html"
+      },
+      {
+        "name": "京都市交通局 定期券以外の運賃（市バス）",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000240682.html"
+      },
+      {
+        "name": "京都市交通局 運賃・乗車券Q&A",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000204850.html"
+      },
+      {
+        "name": "KANSAI MaaS 地下鉄・バス1日券",
+        "url": "https://app.kansai-maas.jp/tickets/KMJW309400"
+      },
+      {
+        "name": "kyotokurasu 2026年京都乗り放題乗車券（嵐電1day）",
+        "url": "https://kyotokurasu.jp/goout-shopping/32857"
+      },
+      {
+        "name": "Osaka Metro エンジョイエコカード",
+        "url": "https://subway.osakametro.co.jp/guide/page/enjoy-eco.php"
+      },
+      {
+        "name": "Osaka Metro お得な乗車券（デジタル）",
+        "url": "https://subway.osakametro.co.jp/guide/fare/category_digital_tickets/digital_tickets/digital_joshaken.php"
+      },
+      {
+        "name": "大阪周遊パス INFORMATION",
+        "url": "https://osaka-amazing-pass.com/info.html"
+      },
+      {
+        "name": "Osaka Metro タッチ決済",
+        "url": "https://subway.osakametro.co.jp/guide/page/contactless_payment.php"
+      },
+      {
+        "name": "Osaka Metro お子さまの運賃",
+        "url": "https://subway.osakametro.co.jp/guide/fare/various_fares/child_fare/josya-ryokin_child.php"
+      },
+      {
+        "name": "JR西日本 Kansai Area Pass（停售公告）",
+        "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai"
+      },
+      {
+        "name": "JR西日本 Kansai Mini Pass",
+        "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansaimini"
+      },
+      {
+        "name": "JR西日本 QR2dayパス 2026年度発売",
+        "url": "https://www.westjr.co.jp/press/article/items/260225_00_press_JRWESTQR2daypass_1.pdf"
+      },
+      {
+        "name": "JR西日本 きっぷのルール（2026年10月号）",
+        "url": "https://www.jr-odekake.net/ticket/guide/ebook/pages/pageindices/index44.html"
+      },
+      {
+        "name": "関西空港交通 ご利用案内（運賃区分）",
+        "url": "https://www.kate.co.jp/guide"
+      }
+    ]
+  },
+  {
+    "id": "stroller-train",
+    "cat": "親子",
+    "icon": "🚼",
+    "title": "推車搭電車：電梯與無障礙",
+    "summary": "先查車站電梯出口；烏丸御池站有哺乳室，行李交給寄送服務最輕鬆",
+    "updated": "2026-11-10",
+    "sections": [
+      {
+        "h": "怎麼找電梯",
+        "items": [
+          "京都地鐵：交通局官網「駅施設」頁列出每站**電梯出口**",
+          "京都地鐵多數站地面電梯**只有1處**，出站前先確認",
+          "**烏丸御池站**：地面電梯在**3-2號出口**及新風館內",
+          "**地鐵京都站**：地面電梯在**5號出口**（JR京都站正面東側）",
+          "地鐵京都站另可走**地下街Porta**或**八條口連絡通路**電梯",
+          "**Osaka Metro全134站**都有從地面到月台的無階梯路線",
+          "JR：JRおでかけネット各站「構內圖」標有電梯位置",
+          "四條站往阪急烏丸的通道電梯**2026年度末才完工**，目前用升降機"
+        ]
+      },
+      {
+        "h": "推車搭車規則與技巧",
+        "items": [
+          "Osaka Metro**每節車廂1處**輪椅／推車空間",
+          "Osaka Metro全站有月台門；月台與車廂仍有約2～7cm段差",
+          "需要協助上下車可找站員，忙碌時需稍候",
+          "JR「列車走行位置」App可查推車空間、廁所在第幾車（部分路線）",
+          "大阪環狀線323系**5號車**有親子空間「ミライ」",
+          "避開通勤尖峰，推車上車選**車廂連結處的空間**（建議）"
+        ]
+      },
+      {
+        "h": "女性專用車廂",
+        "items": [
+          "御堂筋線：**平日全天、6號車**（從中百舌鳥側數第6節）",
+          "谷町線：平日首班車～上午9點、3號車",
+          "週六日假日不設；12/18（五）在大阪搭御堂筋要留意",
+          "爸爸同行請避開6號車；男童規定未確認，以現場為準"
+        ]
+      },
+      {
+        "h": "哺乳室／尿布台",
+        "items": [
+          "**京都地鐵烏丸御池站**有個室型Baby Care Room（飯店最近）",
+          "京都地鐵另設：國際會館、北山、蹴上、東山站",
+          "開放7:00～20:00，免費，內可上鎖；無熱水、無垃圾桶",
+          "JR**大阪站：西口改札內**授乳室，有2間上鎖個室",
+          "JR新大阪站：在來線改札內授乳室",
+          "JR京都站改札內授乳室：官方清單未列，未確認",
+          "京都站周邊：伊勢丹7樓嬰兒休息室（非官方資料，未確認）",
+          "地鐵京都站多功能廁所有尿布台（中央1改札旁通道）",
+          "Osaka Metro部分站有授乳室，可直接詢問站員"
+        ]
+      },
+      {
+        "h": "寄放與寄送行李（手ぶら観光）",
+        "items": [
+          "京都站寄送櫃台：Crosta京都（B1）、京なび、市巴士地鐵案內所等",
+          "**12/18 京都飯店→大阪飯店**：Crosta每件2,500円",
+          "上述服務需**上午10點前**在合作飯店櫃台交件，19點後取",
+          "京都站→大阪飯店：每件2,500円，**13點前**交件（Crosta）",
+          "京なび（Yamato）寄大阪限北區、中央區、浪速區等7區",
+          "合作飯店名單請先查Crosta官網，**推車本身不收**",
+          "從機場當日送京都飯店須**12:30前**交件，我們落地太晚",
+          "Yamato空港宅急便寄回機場：須**出發2天前**寄出（12/18前）",
+          "寄機場另收空港手續費660円",
+          "JR車站置物櫃位置：查JRおでかけネット各站「その他サービス」"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "name": "京都市交通局 烏丸御池駅施設",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000009448.html"
+      },
+      {
+        "name": "京都市交通局 地下鉄京都駅施設",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000009812.html"
+      },
+      {
+        "name": "京都市交通局 ベビーケアルームのご案内",
+        "url": "https://www.city.kyoto.lg.jp/kotsu/page/0000359333.html"
+      },
+      {
+        "name": "京都市 令和8年度予算案（四条駅エレベーター等）",
+        "url": "https://www.city.kyoto.lg.jp/gyozai/cmsfiles/contents/0000347/347934/13_koutsu_kouhou.pdf"
+      },
+      {
+        "name": "Osaka Metro お子さま連れ・妊娠中のお客さま",
+        "url": "https://subway.osakametro.co.jp/barriafree/page/okosama.php"
+      },
+      {
+        "name": "Osaka Metro 地下鉄のバリアフリー（駅施設）",
+        "url": "https://subway.osakametro.co.jp/barriafree/subway/barriar_free_subway/barriar_free_subway.php"
+      },
+      {
+        "name": "Osaka Metro 女性専用車両のご案内",
+        "url": "https://subway.osakametro.co.jp/guide/usage/female_vehicle/220401woman_syaryou.php"
+      },
+      {
+        "name": "JR西日本 こどもおでかけ応援ポータル ミライ",
+        "url": "https://www.jr-odekake.net/railroad/kodomoodekake"
+      },
+      {
+        "name": "JR西日本 お子様連れのお客様へ",
+        "url": "https://www.jr-odekake.net/railroad/service/children.html"
+      },
+      {
+        "name": "JR西日本 ベビーケアルーム（授乳室）",
+        "url": "https://www.jr-odekake.net/railroad/service/baby-care/"
+      },
+      {
+        "name": "JR西日本 FAQ 駅のご利用（コインロッカー）",
+        "url": "https://support-faq.westjr.co.jp/westjr/category/show/273?site_domain=default"
+      },
+      {
+        "name": "京都駅ナビ 授乳室（非官方）",
+        "url": "http://kyoto-rys.com/facility/rest"
+      },
+      {
+        "name": "京都市 HANDS FREE KYOTO",
+        "url": "https://hands-free.kyoto.travel/ja"
+      },
+      {
+        "name": "京都市観光協会 京なび手荷物配送",
+        "url": "https://www.kyokanko.or.jp/news/20240930"
+      },
+      {
+        "name": "Crosta京都（繁中）配送料金・時間",
+        "url": "https://handsfree-japan.com/tc/kyoto"
+      },
+      {
+        "name": "Crosta キャリーサービス",
+        "url": "https://handsfree-japan.com/carry"
+      },
+      {
+        "name": "関西エアポート ヤマト運輸T1 4F北店",
+        "url": "https://www.kansai-airports.co.jp/news/j-260717-pressrelease-kix-yamatotransport"
+      },
+      {
+        "name": "関西国際空港 宅配サービス",
+        "url": "https://www.kansai-airport.or.jp/service/delivery/delivery-service"
+      },
+      {
+        "name": "ヤマト運輸 空港宅急便",
+        "url": "https://www.kuronekoyamato.co.jp/ytc/customer/send/services/airport"
+      }
+    ]
+  }
 ]
