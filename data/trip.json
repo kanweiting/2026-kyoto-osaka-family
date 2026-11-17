@@ -82,7 +82,8 @@
         "slot": "入住",
         "time": "18:00",
         "title": "入住 HANARE by Tokyu Stay Kyoto Sanjo",
-        "icon": "🏨"
+        "icon": "🏨",
+        "note": "可入住時間 15:00–24:00"
       }
     ],
     "2026-12-14": [],
@@ -94,7 +95,8 @@
         "slot": "退房",
         "time": "10:00",
         "title": "HANARE 退房",
-        "icon": "🧳"
+        "icon": "🧳",
+        "note": "最晚 11:00 前退房"
       },
       {
         "slot": "交通",
@@ -105,10 +107,10 @@
       },
       {
         "slot": "入住",
-        "time": "15:00",
+        "time": "16:00",
         "title": "入住 Apartment Hotel 11 難波南 3",
         "icon": "🏨",
-        "note": "入住時間以訂房確認信為準"
+        "note": "16:00 起可入住；中間空檔可先寄放行李或直接寄送行李"
       }
     ],
     "2026-12-19": [],
@@ -117,7 +119,8 @@
         "slot": "退房",
         "time": "10:00",
         "title": "Apartment Hotel 11 難波南 3 退房",
-        "icon": "🧳"
+        "icon": "🧳",
+        "note": "最晚 10:00 前退房"
       },
       {
         "slot": "交通",
@@ -195,7 +198,9 @@
         "name": "京都",
         "lat": 35.0116,
         "lng": 135.7681
-      }
+      },
+      "checkinTime": "15:00–24:00",
+      "checkoutTime": "11:00 前"
     },
     {
       "name": "Apartment Hotel 11 難波南 3",
@@ -209,7 +214,9 @@
         "name": "大阪",
         "lat": 34.65454,
         "lng": 135.49955
-      }
+      },
+      "checkinTime": "16:00",
+      "checkoutTime": "10:00 前"
     }
   ],
   "todoTemplate": [
