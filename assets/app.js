@@ -873,6 +873,7 @@ function ledger() {
   return { ex, bal, paid, share, tx, settles, total: ex.reduce((s, e) => s + toBase(+e.amount, e.currency, dOf(e)), 0),
     totalTwd: ex.reduce((s, e) => s + toTwd(+e.amount, e.currency, dOf(e)), 0) };
 }
+const paidBy = (ex, who, pay) => ex.filter(e => (!who || e.payer === who) && (!pay || e.pay === pay)).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0);
 function renderMoney() {
   const L0 = ledger(), me = trip.noSplit ? '' : S.me;
   if (trip.noSplit) {   // 一家人共用錢包：不分帳
@@ -884,7 +885,9 @@ function renderMoney() {
       <div class="grid3"><div><span class="k">筆數</span><b>${L0.ex.length}</b></div>
         <div><span class="k">今天</span><b>${SYM}${fmt(spentToday)}</b></div>
         <div><span class="k">每日平均</span><b>${SYM}${fmt(L0.total / daysSpent)}</b></div></div>
-      <div class="pay-split">${PAYS.map(x => `<span>${x.icon} ${x.name} <b>${SYM}${fmt(L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0))}</b></span>`).join('')}</div>`;
+      <div class="pay-split">${PAYS.map(x => `<span>${x.icon} ${x.name} <b>${SYM}${fmt(paidBy(L0.ex, '', x.id))}</b></span>`).join('')}</div>
+      <div class="payer-split">${trip.members.map(m => `<div>${av(m.id)}<span><b>${h(m.name)} 付 ${SYM}${fmt(paidBy(L0.ex, m.id))}</b>
+        <small>${PAYS.map(x => `${x.icon} ${SYM}${fmt(paidBy(L0.ex, m.id, x.id))}`).join(' · ')}</small></span></div>`).join('')}</div>`;
   } else
   $('#moneyHero').innerHTML = `<div class="k">團體總花費</div><div class="v">${SYM}${fmt(L0.total)}<small>≈ ${HSYM}${fmt(L0.totalTwd)}</small></div>
     <div class="grid3">
@@ -896,21 +899,30 @@ function renderMoney() {
   $$('#moneySeg button').forEach(b => b.classList.toggle('on', b.dataset.mview === S.mview));
   const body = $('#moneyBody');
   if (S.mview === 'list') {
+    if (trip.noSplit && L0.ex.length) {
+      const fw = S.mwho || '', fp = S.mpay || '';
+      const chips = `<div class="chips mfilter">${[['', '全部'], ...trip.members.map(m => [m.id, m.name + ' 付'])].map(([v, t]) => `<button class="chip ${fw === v ? 'on' : ''}" data-mwho="${v}">${h(t)}</button>`).join('')}
+        <span class="sep"></span>${[['', '全部'], ...PAYS.map(x => [x.id, x.icon + ' ' + x.name])].map(([v, t]) => `<button class="chip ${fp === v ? 'on' : ''}" data-mpay="${v}">${h(t)}</button>`).join('')}</div>`;
+      L0.ex = L0.ex.filter(e => (!fw || e.payer === fw) && (!fp || e.pay === fp));
+      L0.total = L0.ex.reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0); L0.totalTwd = L0.ex.reduce((a, e) => a + toTwd(+e.amount, e.currency, dOf(e)), 0);
+      if (!L0.ex.length) return (body.innerHTML = chips + '<div class="empty">沒有符合的帳</div>');
+      body.dataset.chips = chips;
+    } else delete body.dataset.chips;
     if (!L0.ex.length) return (body.innerHTML = '<div class="empty">還沒有任何一筆<br><span class="small">按右下角 ＋ 開始記帳</span></div>');
     const groups = {}; L0.ex.forEach(e => (groups[e.at.slice(0, 10)] ||= []).push(e));
     const sub = es => es.reduce((s, e) => s + toBase(+e.amount, e.currency, dOf(e)), 0), mySub = es => me ? es.reduce((s, e) => s + (owed(e)[me] || 0), 0) : 0;
-    body.innerHTML = Object.entries(groups).map(([d, es]) => `<div class="day-group"><span>${trip.dates.includes(d) ? `D${dayNo(d)} · ` : ''}${dayLabel(d)} · ${es.length} 筆</span><span>小計 ${SYM}${fmt(sub(es))}${me ? `<small> · 我 ${SYM}${fmt(mySub(es))}</small>` : ''}</span></div>` +
+    body.innerHTML = (body.dataset.chips || '') + Object.entries(groups).map(([d, es]) => `<div class="day-group"><span>${trip.dates.includes(d) ? `D${dayNo(d)} · ` : ''}${dayLabel(d)} · ${es.length} 筆</span><span>小計 ${SYM}${fmt(sub(es))}${me ? `<small> · 我 ${SYM}${fmt(mySub(es))}</small>` : ''}</span></div>` +
       es.map(e => { const c = CAT[e.cat] || CAT.other, mine = me ? owed(e)[me] || 0 : null;
         return `<button class="exp" data-exp="${e.id}"><div class="icon-tile sm" style="--c:var(--seq)">${c.icon}</div>
-          <div class="body"><div class="t">${e.photo ? '📷 ' : ''}${h(e.title)}</div><div class="s">${e.at.slice(11, 16)} · ${trip.noSplit ? `${h(c.name)} · ${PAY[e.pay].icon} ${PAY[e.pay].name}` : `${h(memberName(e.payer))} 付 · ${e.people.length === trip.members.length ? '全部人' : e.people.length + ' 人'}${{ ratio: '·比例', amount: '·指定金額' }[e.mode] || ''}`}</div></div>
+          <div class="body"><div class="t">${e.photo ? '📷 ' : ''}${h(e.title)}</div><div class="s">${e.at.slice(11, 16)} · ${trip.noSplit ? `${h(memberName(e.payer))} 付 · ${PAY[e.pay].icon} ${PAY[e.pay].name} · ${h(c.name)}` : `${h(memberName(e.payer))} 付 · ${e.people.length === trip.members.length ? '全部人' : e.people.length + ' 人'}${{ ratio: '·比例', amount: '·指定金額' }[e.mode] || ''}`}</div></div>
           <div class="amt">${curSym(e.currency)}${fmt(+e.amount)}${e.currency !== CUR().local ? `<small class="muted">≈ ${SYM}${fmt(toBase(+e.amount, e.currency, dOf(e)))} · ${fxOn(dOf(e)).rate}</small>` : ''}${mine != null ? `<small class="${mine ? '' : 'muted'}">${mine ? '我 ¥' + fmt(mine) : '與我無關'}</small>` : ''}</div></button>`; }).join('')).join('') +
       `<div class="grand"><span>總計 · ${L0.ex.length} 筆</span><b>${SYM}${fmt(L0.total)}</b><small>≈ ${HSYM}${fmt(L0.totalTwd)}（每筆用當天台銀匯率）${me ? ` · 我 ${SYM}${fmt(L0.share[me])}` : ''}</small></div>`;
   } else if (S.mview === 'daily') {
     const days = [...new Set([...trip.dates, ...L0.ex.map(e => e.at.slice(0, 10))])].sort(), ms = trip.noSplit ? [] : trip.members;
-    const cell = (d, id) => L0.ex.filter(e => e.at.slice(0, 10) === d).reduce((s, e) => s + (!id ? toBase(+e.amount, e.currency, dOf(e)) : PAY[id] ? (e.pay === id ? toBase(+e.amount, e.currency, dOf(e)) : 0) : owed(e)[id] || 0), 0);
-    const cols = trip.noSplit ? PAYS.map(x => ({ id: x.id, head: x.icon, tot: L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0) }))
+    const cell = (d, id) => L0.ex.filter(e => e.at.slice(0, 10) === d).reduce((s, e) => s + (!id ? toBase(+e.amount, e.currency, dOf(e)) : id.startsWith('by:') ? (e.payer === id.slice(3) ? toBase(+e.amount, e.currency, dOf(e)) : 0) : PAY[id] ? (e.pay === id ? toBase(+e.amount, e.currency, dOf(e)) : 0) : owed(e)[id] || 0), 0);
+    const cols = trip.noSplit ? trip.members.map(m => ({ id: 'by:' + m.id, head: av(m.id), tot: paidBy(L0.ex, m.id) }))
       : ms.map(m => ({ id: m.id, head: av(m.id), tot: L0.share[m.id] }));
-    body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>每日小計</h3><span class="muted small">${trip.noSplit ? `💳 信用卡 · 💵 現金（${SYM}）` : `每人＝應負擔金額（${SYM}）`}</span></div>
+    body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>每日小計</h3><span class="muted small">${trip.noSplit ? `每人＝自己付的（${SYM}）` : `每人＝應負擔金額（${SYM}）`}</span></div>
       <div class="matrix"><table class="daily"><tr><th>日期</th>${cols.map(c => `<th>${c.head}</th>`).join('')}<th>小計</th></tr>
       ${days.map(d => `<tr><td>${trip.dates.includes(d) ? `<b>D${dayNo(d)}</b> ` : ''}${md(d)}<div class="fx-cell">匯率 ${fxOn(d).rate}</div></td>${cols.map(m => { const v = cell(d, m.id); return `<td class="${v ? '' : 'muted'}">${v ? fmt(v) : '–'}</td>`; }).join('')}<td><b>${fmt(cell(d))}</b></td></tr>`).join('')}
       <tr class="total"><td>總計</td>${cols.map(c => `<td>${fmt(c.tot)}</td>`).join('')}<td>${fmt(L0.total)}</td></tr></table></div>
@@ -944,6 +956,8 @@ function renderMoney() {
     const byCat = CATS.map(c => ({ c, v: L0.ex.filter(e => e.cat === c.id).reduce((s, e) => s + toBase(+e.amount, e.currency, dOf(e)), 0) })).filter(x => x.v).sort((a, b) => b.v - a.v);
     const mx = byCat[0]?.v || 1;
     body.innerHTML = `<div class="panel" style="margin-top:0"><div class="panel-head"><h3>花費分類</h3><span class="muted small">${trip.noSplit ? '合計' : '團體合計'}</span></div>` +
+      (trip.noSplit && L0.total ? trip.members.map(m => { const v = paidBy(L0.ex, m.id);
+        return `<div class="catbar"><span>${h(m.name)} 付</span><div class="track"><div class="fill" style="width:${v / L0.total * 100}%"></div></div><span class="v">${SYM}${fmt(v)}</span></div>`; }).join('') + '<hr class="soft">' : '') +
       (trip.noSplit && L0.total ? PAYS.map(x => { const v = L0.ex.filter(e => e.pay === x.id).reduce((a, e) => a + toBase(+e.amount, e.currency, dOf(e)), 0);
         return `<div class="catbar"><span>${x.icon} ${x.name}</span><div class="track"><div class="fill" style="width:${v / L0.total * 100}%"></div></div><span class="v">${SYM}${fmt(v)}</span></div>`; }).join('') + '<hr class="soft">' : '') +
       (byCat.map(x => `<div class="catbar" data-tip="${x.c.name}：${SYM}${fmt(x.v)}（${Math.round(x.v / L0.total * 100)}%）"><span>${x.c.icon} ${x.c.name}</span><div class="track"><div class="fill" style="width:${x.v / mx * 100}%"></div></div><span class="v">${SYM}${fmt(x.v)}</span></div>`).join('') || '<div class="muted">還沒有資料</div>') + '</div>';
@@ -983,6 +997,7 @@ function openExpense(id) {
         ${F.ocrMsg ? `<div class="small ${F.ocrBad ? 'neg' : 'muted'}">${h(F.ocrMsg)}</div>` : ''}</div>
     </div>
     <div class="seg" data-g="currency">${[CUR().local, CUR().home].map(c => `<button class="${F.currency === c ? 'on' : ''}" data-v="${c}">${c === CUR().local ? CUR().localSym + ' ' + CUR().localName : CUR().homeSym + ' ' + CUR().homeName}</button>`).join('')}</div>
+    ${trip.noSplit ? `<div class="field"><span class="field-label">誰付的錢</span><div class="people">${trip.members.map(m => `<button class="person ${F.payer === m.id ? 'on' : ''}" data-payer="${m.id}">${av(m.id)}${h(m.name)}</button>`).join('')}</div></div>` : ''}
     <div class="seg" data-g="pay">${PAYS.map(x => `<button class="${(F.pay || 'card') === x.id ? 'on' : ''}" data-v="${x.id}">${x.icon} ${x.name}</button>`).join('')}</div>
     <div class="field"><label for="fTitle">這次是什麼</label><input class="input" id="fTitle" placeholder="例：一蘭拉麵、ICOCA 加值" value="${h(F.title)}" maxlength="40"></div>
     <div class="field"><span class="field-label">類別</span><div class="cat-grid">${CATS.map(c => `<button class="cat-btn ${F.cat === c.id ? 'on' : ''}" data-cat="${c.id}"><i>${c.icon}</i>${c.name}</button>`).join('')}</div></div>
@@ -1040,7 +1055,7 @@ function openExpense(id) {
     keep(el);
     const t = total();
     if (!t) return toast('請輸入金額');
-    if (trip.noSplit) { F.people = trip.members.map(m => m.id); F.mode = 'equal'; F.payer = S.me || trip.members[0].id; }
+    if (trip.noSplit) { F.people = trip.members.map(m => m.id); F.mode = 'equal'; F.payer = F.payer || S.me || trip.members[0].id; }
     if (!F.people.length) return toast('至少分給一個人');
     if (F.mode === 'ratio' && !F.people.some(i => +F.shares[i] > 0)) return toast('比例不能全為 0');
     if (F.mode === 'amount' && Math.abs(F.people.reduce((a, i) => a + (+F.shares[i] || 0), 0) - t) >= 1) return toast('分配金額加總要等於總金額');
@@ -1157,6 +1172,8 @@ function bind() {
       if (!confirm(`取消這筆核銷（${memberName(st.from)} → ${memberName(st.to)} ${SYM}${fmt(+st.amount)}）？`)) return;
       await Store.del(st.id); toast('已取消核銷'); renderMoney(); }
   });
+  $('#moneyBody').addEventListener('click', e => { const w = e.target.closest('[data-mwho]'), q = e.target.closest('[data-mpay]');
+    if (w) { S.mwho = w.dataset.mwho; renderMoney(); } if (q) { S.mpay = q.dataset.mpay; renderMoney(); } });
   $('#moneySeg').onclick = e => { const b = e.target.closest('[data-mview]'); if (b) { S.mview = b.dataset.mview; renderMoney(); } };
   document.addEventListener('click', async e => {
     const t = e.target.closest('[data-fav],[data-day],[data-hide],[data-showall],[data-hideall],[data-favlayer],[data-type],[data-route],[data-clear-route],[data-exp],[data-sysrm],[data-sumedit],[data-pedit-tl],[data-gsearch],[data-open],[data-area]');
