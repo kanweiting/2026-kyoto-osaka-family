@@ -8473,5 +8473,968 @@
 "url": "https://babysaurus.jp/2026/10/19/kansai-airport-with-kids-guide"
 }
 ]
+},
+{
+"id": "w_xma_1",
+"name": "京都車站聖誕樹",
+"name_en": "",
+"name_ja": "京都駅ビル 駅ビルクリスマスツリー",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "高7m生木樅樹，每30分鐘變色；12/13抵達日可遇到聖誕老人見面",
+"price": "",
+"address": "京都府京都市下京区烏丸通塩小路下ル東塩小路町901",
+"lat": 34.985849,
+"lng": 135.7587667,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E9%A7%85%E3%83%93%E3%83%AB%20%E9%A7%85%E3%83%93%E3%83%AB%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E3%83%84%E3%83%AA%E3%83%BC",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/18–12/25 15:00–23:00；聖誕老人見面12/12、13、19、20、24"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "位置：1F駅前廣場（巴士票券中心前） / 聖誕老人見面送小孩糖果，免費"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "京都站/梅小路",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "京都駅ビル 駅ビルクリスマスツリー2026",
+"url": "https://www.kyoto-station-building.co.jp/events/ksb-christmas"
+},
+{
+"name": "PR TIMES 京都駅ビル ツリー＆サンタグリーティング2026",
+"url": "https://prtimes.jp/main/html/rd/p/000002457.000095753.html"
+}
+]
+},
+{
+"id": "w_xma_2",
+"name": "京都高島屋旋轉木馬",
+"name_en": "",
+"name_ja": "京都高島屋S.C. メリーゴーラウンド",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "免費但需App券、高島屋卡或當日消費滿1,000円收據；週末限小學生以下",
+"price": "",
+"address": "京都府京都市下京区四条通河原町西入真町52",
+"lat": 35.0031004,
+"lng": 135.7684962,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E9%AB%98%E5%B3%B6%E5%B1%8BS.C.%20%E3%83%A1%E3%83%AA%E3%83%BC%E3%82%B4%E3%83%BC%E3%83%A9%E3%82%A6%E3%83%B3%E3%83%89",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "12/9–25 11:30–18:00（最終受付17:30）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "6歲以下需家長同乘 / 12/13館內活動時暫停"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "河原町/祇園",
+"indoor": true,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "京都高島屋 2026 Takashimaya Christmas",
+"url": "https://www.takashimaya.co.jp/kyoto/departmentstore/christmas_261111"
+}
+]
+},
+{
+"id": "w_xma_3",
+"name": "京都大倉飯店聖誕樹",
+"name_en": "",
+"name_ja": "ホテルオークラ京都 ウインターイルミネーション",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "大廳約5m聖誕樹，河原町通、御池通街樹約2.5萬球燈，離烏丸御池不遠",
+"price": "",
+"address": "",
+"lat": 35.011844,
+"lng": 135.7694264,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%83%9B%E3%83%86%E3%83%AB%E3%82%AA%E3%83%BC%E3%82%AF%E3%83%A9%E4%BA%AC%E9%83%BD%20%E3%82%A6%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "聖誕樹11/13–12/25；街樹燈飾至1/11 17:30–24:00"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "地下鐵東西線京都市役所前站直結 / 免費"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "河原町/祇園",
+"indoor": true,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "ウォーカープラス ホテルオークラ京都 2026",
+"url": "https://illumi.walkerplus.com/detail/ar0726e449559/"
+}
+]
+},
+{
+"id": "w_xma_4",
+"name": "Agnes燈飾（平安女學院）",
+"name_en": "",
+"name_ja": "アグネス・イルミネーション2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "學生手作燈飾，2026主題「愛」；有寶特瓶「和平樹」；預估不擁擠",
+"price": "",
+"address": "",
+"lat": 35.0196789,
+"lng": 135.7577077,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%82%A2%E3%82%B0%E3%83%8D%E3%82%B9%E3%83%BB%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B32026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/20–12/25 16:30–21:00"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "地下鐵丸太町站步行5分 / 免費"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "二條城/御所",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "ウォーカープラス アグネス・イルミネーション2026",
+"url": "https://illumi.walkerplus.com/detail/ar0726e451381/"
+}
+]
+},
+{
+"id": "w_xma_5",
+"name": "GOOD NATURE STATION 聖誕樹",
+"name_en": "",
+"name_ja": "GOOD NATURE STATION Holiday with you 2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "4F中庭樅樹與燈籠裝飾；12/12的Holiday Marche不在行程日期內",
+"price": "",
+"address": "",
+"lat": 35.0025632,
+"lng": 135.7691571,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=GOOD%20NATURE%20STATION%20Holiday%20with%20you%202026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/21–1/11（時間依店鋪）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "免費參觀 / 京都河原町一帶"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "河原町/祇園",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "PR TIMES GOOD NATURE STATION Holiday with you 2026",
+"url": "https://prtimes.jp/main/html/rd/p/000000267.000054899.html"
+},
+{
+"name": "ウォーカープラス 京都府イルミネーション2026-2027一覧",
+"url": "https://illumi.walkerplus.com/list/ar0726"
+}
+]
+},
+{
+"id": "w_xma_6",
+"name": "京都水族館 冬季活動",
+"name_en": "",
+"name_ja": "京都水族館 冬のあったかすいぞくかん／オオサンショウウオツリー",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "約60盞水母燈與鏡面隧道，另有99隻山椒魚玩偶堆成的聖誕樹",
+"price": "",
+"address": "京都府京都市下京区観喜寺町35-1",
+"lat": 34.987516,
+"lng": 135.7472123,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E6%B0%B4%E6%97%8F%E9%A4%A8%20%E5%86%AC%E3%81%AE%E3%81%82%E3%81%A3%E3%81%9F%E3%81%8B%E3%81%99%E3%81%84%E3%81%9E%E3%81%8F%E3%81%8B%E3%82%93%EF%BC%8F%E3%82%AA%E3%82%AA%E3%82%B5%E3%83%B3%E3%82%B7%E3%83%A7%E3%82%A6%E3%82%A6%E3%82%AA%E3%83%84%E3%83%AA%E3%83%BC",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/21–3/31（水族館營業時間內）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "JR梅小路京都西站步行約7分 / 需水族館門票"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "京都站/梅小路",
+"indoor": true,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "京都水族館 冬のあったかすいぞくかん2026",
+"url": "https://www.kyoto-aquarium.com/news/k_20261105"
+},
+{
+"name": "京都水族館 オオサンショウウオツリー2026",
+"url": "https://www.kyoto-aquarium.com/news/k_20261116"
+}
+]
+},
+{
+"id": "w_xma_7",
+"name": "京都府立植物園 秋夜花園",
+"name_en": "",
+"name_ja": "京都府立植物園 秋のナイトガーデン",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "紅葉點燈與手提燈籠夜遊；行程中只有12/13抵達日可去",
+"price": "",
+"address": "京都府京都市左京区下鴨半木町",
+"lat": 35.0486172,
+"lng": 135.7630378,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E4%BA%AC%E9%83%BD%E5%BA%9C%E7%AB%8B%E6%A4%8D%E7%89%A9%E5%9C%92%20%E7%A7%8B%E3%81%AE%E3%83%8A%E3%82%A4%E3%83%88%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/14–12/13 18:00–21:30（最終入園20:30）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "大人平日1,100円／週末1,500円 / 手提燈籠另1,500円"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "下鴨/北白川",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "ファッションプレス 京都府立植物園 秋のナイトガーデン2026",
+"url": "https://www.fashion-press.net/news/152758"
+}
+]
+},
+{
+"id": "w_xma_8",
+"name": "天王寺 てんしば聖誕市集",
+"name_en": "",
+"name_ja": "クリスマスマーケット in 大阪 てんしば 2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "3棵巨大聖誕樹、光之隧道，てんしばi:na有聖誕老人小屋可合照",
+"price": "",
+"address": "大阪府大阪市天王寺区茶臼山町5-55",
+"lat": 34.6485381,
+"lng": 135.5110453,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%20in%20%E5%A4%A7%E9%98%AA%20%E3%81%A6%E3%82%93%E3%81%97%E3%81%B0%202026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/20–12/25；至12/18 11:00–21:00，12/19起11:00–21:30"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "免費入場，餐飲另計 / 天王寺站步行即到，無停車場"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "天王寺",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "クリスマスマーケット in 大阪 てんしば 2026 公式",
+"url": "https://osaka-christmasmarket.com"
+},
+{
+"name": "PR TIMES てんしば2026 プレスリリース",
+"url": "https://prtimes.jp/main/html/rd/p/000000010.000130159.html"
+},
+{
+"name": "日本旅行 てんしば2026（駐車場なし）",
+"url": "https://www.nta.co.jp/kokunai/special/eventinfo/10648378.htm"
+}
+]
+},
+{
+"id": "w_xma_9",
+"name": "通天閣聖誕點燈",
+"name_en": "",
+"name_ja": "通天閣 クリスマスライトアップ（なんば光旅）",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "2026首度參加なんば光旅，把108m通天閣打造成巨大聖誕樹",
+"price": "",
+"address": "",
+"lat": 34.6524992,
+"lng": 135.5063058,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E9%80%9A%E5%A4%A9%E9%96%A3%20%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%EF%BC%88%E3%81%AA%E3%82%93%E3%81%B0%E5%85%89%E6%97%85%EF%BC%89",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/13–12/25 夜間（時間未載）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "觀賞免費 / 近大國町，可散步前往"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "天王寺",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "PR TIMES NANKAI なんば光旅2026（通天閣初参加）",
+"url": "https://prtimes.jp/main/html/rd/p/000000146.000076595.html"
+}
+]
+},
+{
+"id": "w_xma_10",
+"name": "難波Parks なんば光旅",
+"name_en": "",
+"name_ja": "なんば光旅 なんばパークス",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "2F全長18m光之瀑布、8F光之草原、9F原っぱ廣場星空投影",
+"price": "",
+"address": "",
+"lat": 34.6616083,
+"lng": 135.5019349,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%82%93%E3%81%B0%E5%85%89%E6%97%85%20%E3%81%AA%E3%82%93%E3%81%B0%E3%83%91%E3%83%BC%E3%82%AF%E3%82%B9",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/13–2/14 17:00–24:00"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "觀賞免費 / 大國町搭御堂筋線1站到難波"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "難波/心齋橋",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "PR TIMES NANKAI なんば光旅2026（通天閣初参加）",
+"url": "https://prtimes.jp/main/html/rd/p/000000146.000076595.html"
+}
+]
+},
+{
+"id": "w_xma_11",
+"name": "梅田藍天大廈 德國聖誕市集",
+"name_en": "",
+"name_ja": "梅田スカイビル Wonder Christmas Marche",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "約25m、13萬球LED映像聖誕樹，每小時00、30分演出約6分鐘",
+"price": "",
+"address": "",
+"lat": 34.7052872,
+"lng": 135.4896527,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E6%A2%85%E7%94%B0%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%93%E3%83%AB%20Wonder%20Christmas%20Marche",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/13–12/25；市集12:00–22:00；大樹光影秀12/1–25 17:00–21:30"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "入場免費，空中庭園展望台另收費 / 阪急大阪梅田站步行9分"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪梅田",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "梅田スカイビル UMEDA SKY BUILDING Christmas 2026",
+"url": "https://www.skybldg.co.jp/event/xmas"
+}
+]
+},
+{
+"id": "w_xma_12",
+"name": "大阪車站 Twilight Fantasy",
+"name_en": "",
+"name_ja": "大阪ステーションシティ Twilight Fantasy 2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "以金時計為中心的金色燈飾與湯姆貓與傑利鼠拍照點",
+"price": "",
+"address": "",
+"lat": 34.702411,
+"lng": 135.495917,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B7%E3%83%86%E3%82%A3%20Twilight%20Fantasy%202026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/11–12/25 點燈17:00–23:00"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "5F時空廣場，廣場8:00–23:30開放 / 免費"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪梅田",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "JR西日本 Twilight Fantasy 2026 プレス(PDF)",
+"url": "https://www.westjr.co.jp/press/article/2026/11/02/items/261102_00_press_twilightfantasy2026.pdf"
+}
+]
+},
+{
+"id": "w_xma_13",
+"name": "Grand Front大阪 聖誕樹",
+"name_en": "",
+"name_ja": "グランフロント大阪 GRAND WISH CHRISTMAS 2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "北館1F「光之森」聖誕樹群與香氛；周邊香檳金燈飾17:00–24:00",
+"price": "",
+"address": "大阪府大阪市北区大深町3番1号（北館）",
+"lat": 34.7058959,
+"lng": 135.4944171,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E5%A4%A7%E9%98%AA%20GRAND%20WISH%20CHRISTMAS%202026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/4–12/25；燈光秀平日16:00、假日15:00起至24:00（每15分）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "免費 / うめきた廣場另有付費溜冰場"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪梅田",
+"indoor": true,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "グランフロント大阪 GRAND WISH CHRISTMAS 2026",
+"url": "https://www.grandfront-osaka.jp/xmas2026"
+},
+{
+"name": "グランフロント大阪 2026 プレス(PDF)",
+"url": "https://www.grandfront-osaka.jp/files/20260930/ce228d485b3aeadb0580845a6e88a08ddd982f70.pdf"
+}
+]
+},
+{
+"id": "w_xma_14",
+"name": "阪急梅田 聖誕市集",
+"name_en": "",
+"name_ja": "阪急のクリスマスマーケット2026（阪急うめだ本店）",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "鏡面球聖誕樹與旋轉木馬，有德國羅滕堡聖誕商店",
+"price": "",
+"address": "",
+"lat": 34.7028186,
+"lng": 135.4985323,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E9%98%AA%E6%80%A5%E3%81%AE%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B9%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%882026%EF%BC%88%E9%98%AA%E6%80%A5%E3%81%86%E3%82%81%E3%81%A0%E6%9C%AC%E5%BA%97%EF%BC%89",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/18起 10:00–20:00；9F催場至12/20（17:00止），祝祭廣場至12/25"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "阪急大阪梅田站步行約3分 / 12/1部分閉場"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪梅田",
+"indoor": true,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "ぷらっと阪急 阪急のクリスマスマーケット2026",
+"url": "https://odekake.hankyu.co.jp/events/856"
+}
+]
+},
+{
+"id": "w_xma_15",
+"name": "大阪城 Illuminage",
+"name_en": "",
+"name_ja": "大阪城イルミナージュ2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "以大阪城天守為背景的大型燈飾，主題「天下一統 光之章」",
+"price": "",
+"address": "大阪府大阪市中央区大阪城2-2 大阪城西の丸庭園",
+"lat": 34.6867809,
+"lng": 135.5234455,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%9F%8E%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8A%E3%83%BC%E3%82%B8%E3%83%A52026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/20–2/14 17:00–22:00（點燈至21:30）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "大人2,000円、1歲至小學生1,000円 / 谷町四丁目站步行約10分"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪城",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "京阪 大阪城イルミナージュ2026",
+"url": "https://www.keihan.co.jp/visiting/event/detail/2026_13.html"
+},
+{
+"name": "いこーよ 大阪城イルミナージュ（料金）",
+"url": "https://iko-yo.net/facilities/182921"
+}
+]
+},
+{
+"id": "w_xma_16",
+"name": "阿倍野HARUKAS 天空燈飾",
+"name_en": "",
+"name_ja": "あべのハルカス 天空のイルミネーション2026",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "16F戶外庭園香檳金燈飾與拍照點，37F北面新增點燈",
+"price": "",
+"address": "",
+"lat": 34.6460706,
+"lng": 135.5134771,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%B9%E3%81%AE%E3%83%8F%E3%83%AB%E3%82%AB%E3%82%B9%20%E5%A4%A9%E7%A9%BA%E3%81%AE%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B32026",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "11/2–2/28（時間依官網）"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "天王寺／大阪阿部野橋站 / 可與てんしば同日安排"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "天王寺",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "PR TIMES あべのハルカス 天空のイルミネーション2026",
+"url": "https://prtimes.jp/main/html/rd/p/000000136.000107064.html"
+}
+]
+},
+{
+"id": "w_xma_17",
+"name": "USJ 聖誕活動",
+"name_en": "",
+"name_ja": "ユニバーサル・ホリデー・ワンダーズ ～Discover U!!!～",
+"type": "景點",
+"subcat": "聖誕活動",
+"closed": "",
+"note": "需樂園門票；夜間秀在紐約區Gramercy Park，約30分鐘",
+"price": "",
+"address": "",
+"lat": 34.6656768,
+"lng": 135.4323185,
+"approx": false,
+"map": "https://www.google.com/maps/search/?api=1&query=%E3%83%A6%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B5%E3%83%AB%E3%83%BB%E3%83%9B%E3%83%AA%E3%83%87%E3%83%BC%E3%83%BB%E3%83%AF%E3%83%B3%E3%83%80%E3%83%BC%E3%82%BA%20%EF%BD%9EDiscover%20U%21%21%21%EF%BD%9E",
+"ig": [],
+"threads": [],
+"votes": 0,
+"voters": [],
+"src": [
+"web"
+],
+"sharedBy": [],
+"comments": [
+{
+"src": "web",
+"by": "網路整理",
+"text": "活動11/13–1/17；夜間秀Light Up the Night 11/25–1/11"
+},
+{
+"src": "web",
+"by": "網路整理",
+"text": "另有Joy of Lights夜間秀 / 場次依日期不同"
+}
+],
+"rating": null,
+"ratingCount": null,
+"fromList": false,
+"area": "大阪灣/天保山",
+"indoor": false,
+"lists": [
+"網路整理"
+],
+"access": {
+"stroller": "",
+"nursing": null,
+"note": ""
+},
+"links": [
+{
+"name": "USJ ユニバーサル・ホリデー・ワンダーズ 2026 ニュース",
+"url": "https://www.usj.co.jp/company/news/2026/0914_2"
+}
+]
 }
 ]

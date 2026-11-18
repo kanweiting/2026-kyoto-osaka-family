@@ -52,6 +52,7 @@ for p in base:
 new = upd = 0; dup = []; nogeo = []
 for f in sys.argv[1:]:
     R = json.load(open(f, encoding='utf-8')); tag = os.path.splitext(os.path.basename(f))[0]
+    if isinstance(R, list): R = {'places': R}   # 也接受只有地點陣列的檔案
     for q in R.get('places', []):
         if not q.get('sources'): continue                      # 沒來源的不收
         hit = idx.get(norm(q['name'])) or idx.get(norm(q.get('name_ja')))
